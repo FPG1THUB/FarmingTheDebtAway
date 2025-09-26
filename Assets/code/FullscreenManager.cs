@@ -6,7 +6,7 @@ public class FullscreenManager : MonoBehaviour
     private int _fullscreen = 0;
     [Header("Toggle References")]
     [SerializeField] Toggle _exclusiveFullscreenToggle;
-    [SerializeField] Toggle _fullscreenWindowToggle;
+    [SerializeField] Toggle _BorderlessToggle;
     [SerializeField] Toggle _windowedToggle;
 
     public int CurrentFullscreenMode
@@ -23,7 +23,7 @@ public class FullscreenManager : MonoBehaviour
                 _exclusiveFullscreenToggle.isOn = true;
                 break;
             case 1:
-                _fullscreenWindowToggle.isOn = true;
+                _BorderlessToggle.isOn = true;
                 break;
             case 2:
                 _windowedToggle.isOn = true;
