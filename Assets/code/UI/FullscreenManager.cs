@@ -1,18 +1,19 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FullscreenManager : MonoBehaviour
+public class FullscreenModeManager : MonoBehaviour
 {
-    private int _fullscreen = 0;
+    private int _fullscreenMode = 0;
+
     [Header("Toggle References")]
     [SerializeField] Toggle _exclusiveFullscreenToggle;
-    [SerializeField] Toggle _BorderlessToggle;
+    [SerializeField] Toggle _borderlessToggle;
     [SerializeField] Toggle _windowedToggle;
 
     public int CurrentFullscreenMode
     {
-        set { _fullscreen = value; }
-        get { return _fullscreen; }
+        set { _fullscreenMode = value; }
+        get { return _fullscreenMode; }
     }
 
     private void Start()
@@ -23,7 +24,7 @@ public class FullscreenManager : MonoBehaviour
                 _exclusiveFullscreenToggle.isOn = true;
                 break;
             case 1:
-                _BorderlessToggle.isOn = true;
+                _borderlessToggle.isOn = true;
                 break;
             case 2:
                 _windowedToggle.isOn = true;
@@ -45,7 +46,7 @@ public class FullscreenManager : MonoBehaviour
             case 1:
                 Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
                 break;
-            case 2:
+            case 2:           
                 Screen.fullScreenMode = FullScreenMode.Windowed;
                 break;
             default:
