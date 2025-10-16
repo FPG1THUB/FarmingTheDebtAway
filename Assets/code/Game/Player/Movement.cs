@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] CharacterController _characterController;
 
     // lists the current movement speed and movement values for player walk, run, crouch, jump and graviy.
-    [SerializeField] float _movementSpeed, _walk = 5, _run = 10, _crouch = 2.5f, _jump = 8, _gravity = 20;
+    [SerializeField] float _movementSpeed, _walk = 5, _run = 10, _crouch = 2.5f, _gravity = 20;//, _jump = 8;
 
     // Stores horizontal and Vertiacl player inputs, (x) (y) inputs
     Vector2 newInput;
@@ -31,13 +31,13 @@ public class PlayerMovement : MonoBehaviour
             if (_characterController.isGrounded)
             {
                 // Check if the player is pressing the Left movement key
-                if (Input.GetKey(KeyBinds.keys["Left"]))
+                if (Input.GetKey(KeybindManager.keys["Left"]))
                 {
                     // Set the horizontal input to -1 (move left)
                     newInput.x = -1;
                 }
                 // Check if the player is pressing the Right movement key
-                else if (Input.GetKey(KeyBinds.keys["Right"]))
+                else if (Input.GetKey(KeybindManager.keys["Right"]))
                 {
                     // Set the horizontal input to 1 (move right)
                     newInput.x = 1;
@@ -50,13 +50,13 @@ public class PlayerMovement : MonoBehaviour
                 }
 
                 // Check if the player is pressing the Backward movement key
-                if (Input.GetKey(KeyBinds.keys["Backward"]))
+                if (Input.GetKey(KeybindManager.keys["Backward"]))
                 {
                     // Set the vertical input to -1 (move backward)
                     newInput.y = -1;
                 }
                 // Check if the player is pressing the Forward movement key
-                else if (Input.GetKey(KeyBinds.keys["Forward"]))
+                else if (Input.GetKey(KeybindManager.keys["Forward"]))
                 {
                     // Set the vertical input to 1 (move forward)
                     newInput.y = 1;
@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
                 _moveDirection *= _movementSpeed;
 
                 //// Check if the player is pressing the Jump key
-                //if (Input.GetKey(KeyBinds.keys["Jump"]))
+                //if (Input.GetKey(KeybindManager.keys["Jump"]))
                 //{
                 //    // Apply upward force to the movement direction (make the character jump)
                 //    _moveDirection.y = _jump;
