@@ -1368,7 +1368,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'More Left:'
+  m_Text: 'Move Left:'
 --- !u!222 &86983237
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1719,7 +1719,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'More Forward:'
+  m_Text: 'Move Forward:'
 --- !u!222 &177324094
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1892,7 +1892,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &220760504
@@ -4386,7 +4386,7 @@ GameObject:
   - component: {fileID: 595941257}
   - component: {fileID: 595941256}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6910,7 +6910,7 @@ GameObject:
   - component: {fileID: 1141800025}
   - component: {fileID: 1141800024}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: Interact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7289,7 +7289,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'More Back:'
+  m_Text: 'Move Back:'
 --- !u!222 &1167655722
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10585,7 +10585,7 @@ GameObject:
   - component: {fileID: 1665916537}
   - component: {fileID: 1665916536}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11451,7 +11451,7 @@ GameObject:
   - component: {fileID: 1800650355}
   - component: {fileID: 1800650354}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
