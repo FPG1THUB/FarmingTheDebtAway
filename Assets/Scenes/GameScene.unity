@@ -132,7 +132,6 @@ GameObject:
   - component: {fileID: 447670152}
   - component: {fileID: 447670151}
   - component: {fileID: 447670156}
-  - component: {fileID: 447670155}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -232,18 +231,6 @@ Transform:
   - {fileID: 644741332}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &447670155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 447670150}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5727d436526c08f428defb81bc39210e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!143 &447670156
 CharacterController:
   m_ObjectHideFlags: 0
@@ -357,6 +344,37 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &598317656
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 598317657}
+  m_Layer: 0
+  m_Name: Tomato seeds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &598317657
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598317656}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.38435, y: -0, z: 28.12529}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -499,7 +517,7 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!1 &1495939684
+--- !u!1 &985760910
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -507,37 +525,118 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1495939686}
-  - component: {fileID: 1495939685}
+  - component: {fileID: 985760911}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Potato seeds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1495939685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1495939684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5727d436526c08f428defb81bc39210e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1495939686
+--- !u!4 &985760911
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1495939684}
+  m_GameObject: {fileID: 985760910}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 325.30704, y: 1.17949, z: 991.31335}
+  m_LocalPosition: {x: 7.38435, y: -0, z: 28.12529}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1000838684
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1000838685}
+  m_Layer: 0
+  m_Name: Carrot seeds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1000838685
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000838684}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.38435, y: -0, z: 28.12529}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1249678985
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1249678987}
+  - component: {fileID: 1249678986}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1249678986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249678985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 530bd92f9f5b92a46bf7c0d31213e843, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carrotSeeds: {fileID: 1000838684}
+  tomatoSeeds: {fileID: 598317656}
+  potatoSeeds: {fileID: 985760910}
+  carrots: {fileID: 9212366509172584987, guid: 5870bc034bbc58a4882d6823f84f8453, type: 3}
+  tomatoes: {fileID: 4655910361068172843, guid: 99d7a91b010826545bd786e67f9df59e, type: 3}
+  potatoes: {fileID: 1866166431527467008, guid: 82621c021e1e1f24ba5571a68f507403, type: 3}
+  currentlyEquippedSeed: {fileID: 1000838684}
+  carrotSeedAmount: 10
+  tomatoSeedAmount: 0
+  potatoSeedAmount: 0
+  isOccupied: 0
+  isWatered: 0
+  waterProgress: 0
+  waterAmount: 0
+  day: 0
+  carrotProgressByDay: 000000000000000000000000
+  tomatoProgressByDay: 000000000000000000000000
+  potatoProgressByDay: 000000000000000000000000
+  isHarvestable: 0
+--- !u!4 &1249678987
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249678985}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.38435, y: -0, z: 28.12529}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -671,4 +770,7 @@ SceneRoots:
   - {fileID: 1878940680}
   - {fileID: 519558278}
   - {fileID: 447670154}
-  - {fileID: 1495939686}
+  - {fileID: 1249678987}
+  - {fileID: 1000838685}
+  - {fileID: 598317657}
+  - {fileID: 985760911}
