@@ -8,11 +8,12 @@ public class Interaction : MonoBehaviour
     // In the rigidbody, freeze it's rotations and positions
     [SerializeField] Transform _player; // An empty object that I can assign the player capsule to.
     public Text toolTip; // Empty text box for tool tip to
+   // [SerializeField] public TextMesh toolTip; // for pop up text, wishful thinking list
+   // Look up worldspace ui if i want to do pop up text
     [Header("Offset")]
     [SerializeField] float _offsetx = 1f; // 
     [SerializeField] float _offsetz = 1f; // 
-   // [SerializeField] public TextMesh toolTip; // for pop up text, wishful thinking list
-   // Look up worldspace ui if i want to do pop up text
+
     Interactable currentObject; // Calls for the currently interacted gameobject if it exists.
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -65,6 +66,7 @@ public class Interaction : MonoBehaviour
         {
             currentObject = interactedObject; // Sets the currentObject to the object that has the necessary script class addition.
             toolTip.text = interactedObject.ToolTip(); // If the object does not have the ToolTip function from Interactable, it will error. 
+
             //toolTip.transform.position = new Vector3(currentObject.transform.position.x, currentObject.transform.position.y + 1, currentObject.transform.position.z);
             // Above is for pop up text, wishful thinking for now.
         }

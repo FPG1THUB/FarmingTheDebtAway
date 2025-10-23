@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class TestInteract : MonoBehaviour, Interactable // Attach , Interactable to include interact options
 {
+    // Slap this onto an gameobject in order to properly test this.
     public void OnInteraction() // from the Interactable script
     {
         Debug.Log(gameObject.name); // just printing out the attached gameObject
