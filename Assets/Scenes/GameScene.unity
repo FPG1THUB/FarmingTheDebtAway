@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 15220798}
   - component: {fileID: 15220797}
   m_Layer: 5
-  m_Name: Slot (1) Text
+  m_Name: Slot_1_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -207,6 +207,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 33031121}
+  - component: {fileID: 33031122}
   m_Layer: 5
   m_Name: Slot_0 Group
   m_TagString: Untagged
@@ -235,6 +236,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &33031122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33031120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: 1
+  m_LayoutPriority: 0
 --- !u!1 &75260834
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,7 +268,7 @@ GameObject:
   - component: {fileID: 75260837}
   - component: {fileID: 75260836}
   m_Layer: 5
-  m_Name: Slot_0 Text
+  m_Name: Slot_0_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -326,7 +347,7 @@ GameObject:
   - component: {fileID: 131303466}
   - component: {fileID: 131303465}
   m_Layer: 5
-  m_Name: Slot (7) Text
+  m_Name: Slot_7_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -405,7 +426,7 @@ GameObject:
   - component: {fileID: 137438540}
   - component: {fileID: 137438539}
   m_Layer: 5
-  m_Name: Slot (6) Text
+  m_Name: Slot_6_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -484,7 +505,7 @@ GameObject:
   - component: {fileID: 142427710}
   - component: {fileID: 142427709}
   m_Layer: 5
-  m_Name: Slot_0
+  m_Name: Slot_0_Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -638,7 +659,7 @@ GameObject:
   - component: {fileID: 266200943}
   - component: {fileID: 266200942}
   m_Layer: 5
-  m_Name: Slot_1
+  m_Name: Slot_1_Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -982,7 +1003,7 @@ GameObject:
   - component: {fileID: 489031529}
   - component: {fileID: 489031528}
   m_Layer: 5
-  m_Name: Slot_4
+  m_Name: Slot_4_Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1057,7 +1078,7 @@ GameObject:
   - component: {fileID: 494215891}
   - component: {fileID: 494215890}
   m_Layer: 5
-  m_Name: Slot (3) Text
+  m_Name: Slot_3_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1137,7 +1158,7 @@ GameObject:
   - component: {fileID: 504048736}
   - component: {fileID: 504048735}
   - component: {fileID: 504048734}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PotatoSeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1157,6 +1178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 1
+  itemName: 
 --- !u!65 &504048735
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1389,7 +1411,7 @@ GameObject:
   - component: {fileID: 605478078}
   - component: {fileID: 605478077}
   - component: {fileID: 605478076}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CarrotSeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1409,6 +1431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 0
+  itemName: 
 --- !u!65 &605478077
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1510,7 +1533,7 @@ GameObject:
   - component: {fileID: 617663469}
   - component: {fileID: 617663468}
   m_Layer: 5
-  m_Name: Slot (5) Text
+  m_Name: Slot_5_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1779,7 +1802,7 @@ GameObject:
   - component: {fileID: 809832076}
   - component: {fileID: 809832075}
   m_Layer: 5
-  m_Name: Slot_3
+  m_Name: Slot_3_Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1880,6 +1903,16 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  hotbarNames:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _selectedHotbarIndex: 0
   money: 0
 --- !u!4 &908019481
 Transform:
@@ -1979,7 +2012,7 @@ GameObject:
   - component: {fileID: 1019773301}
   - component: {fileID: 1019773300}
   - component: {fileID: 1019773299}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TomatoSeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1999,6 +2032,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 2
+  itemName: 
 --- !u!65 &1019773300
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2138,7 +2172,7 @@ GameObject:
   - component: {fileID: 1137718930}
   - component: {fileID: 1137718929}
   - component: {fileID: 1137718928}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tomato
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2157,7 +2191,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1883977116b5dd43bec1a3fc209bd0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 202
+  itemID: 201
+  itemName: 
 --- !u!65 &1137718929
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2259,7 +2294,7 @@ GameObject:
   - component: {fileID: 1170626613}
   - component: {fileID: 1170626612}
   m_Layer: 5
-  m_Name: Slot_5
+  m_Name: Slot_5_Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2334,7 +2369,7 @@ GameObject:
   - component: {fileID: 1199383694}
   - component: {fileID: 1199383693}
   m_Layer: 5
-  m_Name: Slot_6
+  m_Name: Slot_6_Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2549,7 +2584,7 @@ GameObject:
   - component: {fileID: 1341288711}
   - component: {fileID: 1341288710}
   m_Layer: 5
-  m_Name: Slot (2) Text
+  m_Name: Slot_2_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2630,7 +2665,7 @@ GameObject:
   - component: {fileID: 1357458765}
   - component: {fileID: 1357458769}
   - component: {fileID: 1357458770}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: InteractionBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2739,7 +2774,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
-  toolTip: {fileID: 0}
+  toolTip: {fileID: 202303821}
   _offsetx: 1
   _offsetz: 1
 --- !u!54 &1357458770
@@ -2781,7 +2816,7 @@ GameObject:
   - component: {fileID: 1473977395}
   - component: {fileID: 1473977394}
   m_Layer: 5
-  m_Name: Slot_2
+  m_Name: Slot_2_Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2888,7 +2923,7 @@ GameObject:
   - component: {fileID: 1546458464}
   - component: {fileID: 1546458463}
   - component: {fileID: 1546458462}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hoe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2908,6 +2943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 200
+  itemName: 
 --- !u!65 &1546458463
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3046,7 +3082,7 @@ GameObject:
   - component: {fileID: 1792461627}
   - component: {fileID: 1792461626}
   m_Layer: 5
-  m_Name: Slot (4) Text
+  m_Name: Slot_4_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3247,7 +3283,7 @@ GameObject:
   - component: {fileID: 1955639412}
   - component: {fileID: 1955639411}
   - component: {fileID: 1955639410}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Carrot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3267,6 +3303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 100
+  itemName: 
 --- !u!65 &1955639411
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3405,7 +3442,7 @@ GameObject:
   - component: {fileID: 2123768506}
   - component: {fileID: 2123768505}
   m_Layer: 5
-  m_Name: Slot_7
+  m_Name: Slot_7_Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

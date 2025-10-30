@@ -1,13 +1,14 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
 public static class ItemData
 {
-    public static Item CreateItem(int itemID)
+    public static Item CreateItem(int itemID) //using item.CreateItem(in this box put the case #)
     {
         Item newItem = new Item();
         string _itemName = "";
         string _itemDescription = "";
-        int _itemValue = 0;
+        int _itemValue = 0; // Can use this for currency values
         string _itemIcon = "";
         string _itemMesh = "";
         ItemType _itemType = ItemType.Seed;
@@ -41,7 +42,7 @@ public static class ItemData
                 _itemMesh = "Meshes/tomato_seed_mesh";
                 _itemType = ItemType.Seed;
                 break;
-            #endregion
+            #endregion 
             #region Crops
             case 100:
                 _itemName = "Carrot";
@@ -90,6 +91,7 @@ public static class ItemData
                 Debug.LogWarning("ItemId not recognized: " + itemID);
                 break;
         }
+        // this will use the functions in Item to overwrite the itemdata.
         newItem.ItemId = itemID;
         newItem.ItemName = _itemName;
         newItem.ItemDescription = _itemDescription;

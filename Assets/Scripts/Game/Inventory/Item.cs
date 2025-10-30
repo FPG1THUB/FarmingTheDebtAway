@@ -12,6 +12,8 @@ public class Item
     private string _itemMesh;
     private ItemType _itemType;
     // public properties to access stats
+
+    // Below are the series of functions to over ride the known item details with details from the itemData script.
     public int ItemId
     {
         get { return _itemId; }
@@ -52,9 +54,9 @@ public class Item
     }
 
 }
-public enum ItemType
+public enum ItemType // Can add more types as necessary.
 {
     Seed,
     Crop,
-    Tool
+    Tool 
 }

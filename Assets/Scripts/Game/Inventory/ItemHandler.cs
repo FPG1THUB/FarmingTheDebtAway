@@ -1,9 +1,9 @@
 using UnityEngine;
 
 public class ItemHandler : MonoBehaviour, Interactable
-{
-    public int itemID;
-
+{ // Slap this on an object that we want to be picked up.
+    public int itemID; // in the inspector for the item, put the case # for the relevent object
+    public string itemName;
     public void OnInteraction()
     {
 
@@ -15,6 +15,9 @@ public class ItemHandler : MonoBehaviour, Interactable
 
     public string ToolTip()
     {
-        throw new System.NotImplementedException();
+        Debug.Log(ItemData.CreateItem(itemID));
+        return "Press E for"+ItemData.CreateItem(itemID);
+
+
     }
 }

@@ -6,8 +6,9 @@ using System;
 public class Inventory : MonoBehaviour
 {
     public GameObject[] hotbarSlots = new GameObject[8];
+    public GameObject[] hotbarNames = new GameObject[8];
     public List<Item> inventory = new List<Item>();
-    private int _selectedHotbarIndex = 0;
+    public int _selectedHotbarIndex = 0;
     public int money;
 
 
@@ -25,7 +26,11 @@ public class Inventory : MonoBehaviour
     {
         for (int i = 0; i < hotbarSlots.Length; i++)
         {
-            hotbarSlots[i] = GameObject.Find("Slot_"+i);
+            hotbarSlots[i] = GameObject.Find("Slot_"+i+"_Image");
+        }
+        for (int i = 0; i < hotbarNames.Length; i++)
+        {
+            hotbarNames[i] = GameObject.Find("Slot_" + i+"_Text");
         }
     }
     public void UpdateHotBarDisplay()
@@ -33,10 +38,16 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < inventory.Count; i++)
         {
             hotbarSlots[i].GetComponent<Image>().sprite = inventory[i].ItemIcon;
+            hotbarNames[i].GetComponent<Text>().text = inventory[i].ItemName;
         }
     }
-
-
+    private void Update()
+    {
+        if (Input.GetKeyDown("1"))
+        {
+            _selectedHotbarIndex = 0;
+        }
+    }
     #region My attempt
     /*
         [Serializable]
