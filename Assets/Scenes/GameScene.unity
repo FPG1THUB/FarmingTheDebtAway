@@ -1008,7 +1008,6 @@ GameObject:
   - component: {fileID: 447670152}
   - component: {fileID: 447670151}
   - component: {fileID: 447670156}
-  - component: {fileID: 447670155}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1108,18 +1107,6 @@ Transform:
   - {fileID: 644741332}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &447670155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 447670150}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5727d436526c08f428defb81bc39210e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!143 &447670156
 CharacterController:
   m_ObjectHideFlags: 0
@@ -3194,26 +3181,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1495939686}
-  - component: {fileID: 1495939685}
+  - component: {fileID: 1495939687}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1495939685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1495939684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5727d436526c08f428defb81bc39210e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1495939686
 Transform:
   m_ObjectHideFlags: 0
@@ -3229,6 +3204,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1495939687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495939684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca3a4a169bad04f43a20c8ef770afa27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeElapsed: 0
+  currentMinute: 0
+  currentHour: 0
+  currentDay: 0
+  currentWeek: 0
+  currentMonth: 0
+  currentYear: 0
+  currentSeason: 0
+  minuteDuration: 1
+  hourDuration: 60
+  dayDuration: 24
+  weekDuration: 7
+  monthDuration: 4
+  yearDuration: 12
+  timeStep: 1
 --- !u!1001 &1510349996
 PrefabInstance:
   m_ObjectHideFlags: 0
