@@ -42,6 +42,23 @@ public class KeybindManager : MonoBehaviour
         }
         return tempkey;
     }
+    public string[] SendValue()
+    {
+        // Create an array to hold the key values.
+        string[] tempValue = new string[keys.Count];
+        // Create an int to hold the current array element.
+        int i = 0;
+        // Loop through the dictionary to extract key values.
+        foreach (KeyValuePair<string, KeyCode> key in keys)
+        {
+            // Store the key value (KeyCode) as a string in the array.
+            tempValue[i] = key.Value.ToString();
+            // Move to the next index.
+            i++;
+        }
+        // Return the key values.
+        return tempValue;
+    }
 
     private void Start()
     {

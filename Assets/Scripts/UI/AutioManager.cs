@@ -9,7 +9,7 @@ public class AutioManager : MonoBehaviour
     [Header("Volume Control Sliders")]
     [SerializeField] Slider[] _slider = new Slider[3];
     [SerializeField] Text[] _percentText = new Text[3];
-    [SerializeField] float[] _volume = new float[3];
+    [SerializeField] public float[] _volume = new float[3];
     [SerializeField] string[] _channelName = new string[3];
 
     public float[] VolumeControl
