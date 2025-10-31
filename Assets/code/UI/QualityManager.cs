@@ -4,12 +4,12 @@ using UnityEngine.UI;
 public class QualityManager : MonoBehaviour
 {
     [SerializeField] Dropdown _qualityDropdown;
-    int currentqualityIndex = 0;
+    int _currentqualityIndex = 0;
 
     public int CurrentQualityIndex
     {
-        set { currentqualityIndex = value; }
-        get { return currentqualityIndex; }
+        set { _currentqualityIndex = value; }
+        get { return _currentqualityIndex; }
     }
 
     public void ChangeQuality(int qualityIndex)
