@@ -136,9 +136,9 @@ public class Inventory : MonoBehaviour
 
     void UseItem()
     {
-        if ()
-        {
+        //if ()
+        //{
 
-        }
+        //}
     }
 } 
