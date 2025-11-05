@@ -58,6 +58,7 @@ public class Item
         get { return _itemQuantity; }
         set { _itemQuantity = value; }
     }
+   
 }
 public enum ItemType // Can add more types as necessary.
 {

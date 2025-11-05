@@ -5,6 +5,7 @@ public class ItemHandler : MonoBehaviour, Interactable
     public int itemID; // in the inspector for the item, put the case # for the relevent object
     public string itemName; // 
     public int amount; // In the inspector, let's us decide how much of the thing will be added to the inventory at a time.
+    
     public void OnInteraction()
     {
         int check = -1;
@@ -24,7 +25,7 @@ public class ItemHandler : MonoBehaviour, Interactable
             inventory.inventory.Add(ItemData.CreateItem(itemID)); //
             //and set value to the amount we add 
            int temp = inventory.inventory.Count; 
-            inventory.inventory[temp-1].ItemQuantity = amount; // finds that 
+            inventory.inventory[temp-1].ItemQuantity = amount; // 
 
         }
 
@@ -32,10 +33,10 @@ public class ItemHandler : MonoBehaviour, Interactable
         Destroy(gameObject);
     }
 
-    public string ToolTip()
+    public string ToolTip() // don't worry about it for now
     {
-        Debug.Log(ItemData.CreateItem(itemID));
-        return "Press E for"+ItemData.CreateItem(itemID);
+        Debug.Log("");
+        return "Press E to Harvest";
 
 
     }

@@ -17,9 +17,7 @@ public class Inventory : MonoBehaviour
     {
         // connect our hotbar slots to the UI elements
         ConnectHotBar();
-        //add Hoe & Watering Can to hotbar
-        //inventory.Add(ItemData.CreateItem(200));
-        //inventory.Add(ItemData.CreateItem(201));
+
         UpdateHotBarDisplay();
     }
 
@@ -42,22 +40,71 @@ public class Inventory : MonoBehaviour
     {
         for (int i = 0; i < inventory.Count; i++)
         {
+
             hotbarSlots[i].GetComponent<Image>().sprite = inventory[i].ItemIcon;
             hotbarNames[i].GetComponent<Text>().text = inventory[i].ItemName;
             hotbarAmount[i].GetComponent<Text>().text = "x " + inventory[i].ItemQuantity;
-            //if (inventory[i].ItemQuantity >= 0)
-            //{
-            //    inventory[i] = "";
-            //}
+            if (inventory[i].ItemQuantity <= 0)
+            {
+                inventory.Remove(inventory[i]); // Clears out the inventory slot.
+            }
         }
-        
-
     }
     private void Update()
+    {
+        SelectingHotbarSlot();
+        Debug.Log(inventory[_selectedHotbarIndex]);
+    }
+
+    private void SelectingHotbarSlot()
     {
         if (Input.GetKeyDown("1"))
         {
             _selectedHotbarIndex = 0;
+            Debug.Log(_selectedHotbarIndex);
+
+        }
+        else if (Input.GetKeyDown("2"))
+        {
+            _selectedHotbarIndex = 1;
+            Debug.Log(_selectedHotbarIndex);
+
+        }
+        else if (Input.GetKeyDown("3"))
+        {
+            _selectedHotbarIndex = 2;
+            Debug.Log(_selectedHotbarIndex);
+
+        }
+        else if (Input.GetKeyDown("4"))
+        {
+            _selectedHotbarIndex = 3;
+            Debug.Log(_selectedHotbarIndex);
+
+        }
+        else if (Input.GetKeyDown("5"))
+        {
+            _selectedHotbarIndex = 4;
+            Debug.Log(_selectedHotbarIndex);
+
+        }
+        else if (Input.GetKeyDown("6"))
+        {
+            _selectedHotbarIndex = 5;
+            Debug.Log(_selectedHotbarIndex);
+
+        }
+        else if (Input.GetKeyDown("7"))
+        {
+            _selectedHotbarIndex = 6;
+            Debug.Log(_selectedHotbarIndex);
+
+        }
+        else if (Input.GetKeyDown("8"))
+        {
+            _selectedHotbarIndex = 7;
+            Debug.Log(_selectedHotbarIndex);
+
         }
     }
     #region My attempt
@@ -86,4 +133,12 @@ public class Inventory : MonoBehaviour
 
         }*/
     #endregion
+
+    void UseItem()
+    {
+        if ()
+        {
+
+        }
+    }
 } 
