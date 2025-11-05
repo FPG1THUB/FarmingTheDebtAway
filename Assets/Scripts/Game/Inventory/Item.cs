@@ -11,6 +11,7 @@ public class Item
     private Sprite _itemIcon;
     private string _itemMesh;
     private ItemType _itemType;
+    private int _itemQuantity;
     // public properties to access stats
 
     // Below are the series of functions to over ride the known item details with details from the itemData script.
@@ -52,7 +53,11 @@ public class Item
         get { return _itemType; }
         set { _itemType = value; }
     }
-
+    public int ItemQuantity
+    {
+        get { return _itemQuantity; }
+        set { _itemQuantity = value; }
+    }
 }
 public enum ItemType // Can add more types as necessary.
 {

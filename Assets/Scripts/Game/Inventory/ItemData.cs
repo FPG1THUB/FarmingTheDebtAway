@@ -12,6 +12,7 @@ public static class ItemData
         string _itemIcon = "";
         string _itemMesh = "";
         ItemType _itemType = ItemType.Seed;
+        int _itemQuantity = 0; // default value added to the inventory
 
         // Assign values based on ItemID
         switch (itemID)
@@ -25,6 +26,7 @@ public static class ItemData
                 _itemIcon = "Icons/carrot_seed_icon";
                 _itemMesh = "Meshes/carrot_seed_mesh";
                 _itemType = ItemType.Seed;
+                _itemQuantity = 1;
                 break;
             case 1:
                 _itemName = "Potato Seed";
@@ -33,6 +35,7 @@ public static class ItemData
                 _itemIcon = "Icons/potato_seed_icon";
                 _itemMesh = "Meshes/potato_seed_mesh";
                 _itemType = ItemType.Seed;
+                _itemQuantity = 1;
                 break;
             case 2:
                 _itemName = "Tomato Seed";
@@ -41,6 +44,7 @@ public static class ItemData
                 _itemIcon = "Icons/tomato_seed_icon";
                 _itemMesh = "Meshes/tomato_seed_mesh";
                 _itemType = ItemType.Seed;
+                _itemQuantity = 1;
                 break;
             #endregion 
             #region Crops
@@ -51,6 +55,7 @@ public static class ItemData
                 _itemIcon = "Icons/carrot_icon";
                 _itemMesh = "Meshes/carrot_mesh";
                 _itemType = ItemType.Crop;
+                _itemQuantity = 1;
                 break;
             case 101:
                 _itemName = "Potato";
@@ -59,6 +64,7 @@ public static class ItemData
                 _itemIcon = "Icons/potato_icon";
                 _itemMesh = "Meshes/potato_mesh";
                 _itemType = ItemType.Crop;
+                _itemQuantity = 1;
                 break;
             case 102:
                 _itemName = "Tomato";
@@ -67,6 +73,7 @@ public static class ItemData
                 _itemIcon = "Icons/tomato_icon";
                 _itemMesh = "Meshes/tomato_mesh";
                 _itemType = ItemType.Crop;
+                _itemQuantity = 1;
                 break;
             #endregion
             #region Tools
@@ -77,6 +84,7 @@ public static class ItemData
                 _itemIcon = "Icons/hoe_icon";
                 _itemMesh = "Meshes/hoe_mesh";
                 _itemType = ItemType.Tool;
+                _itemQuantity = 1;
                 break;
             case 201:
                 _itemName = "Watering Can";
@@ -85,6 +93,7 @@ public static class ItemData
                 _itemIcon = "Icons/watering_can_icon";
                 _itemMesh = "Meshes/watering_can_mesh";
                 _itemType = ItemType.Tool;
+                _itemQuantity = 1;
                 break;
             #endregion
             default:
@@ -99,6 +108,7 @@ public static class ItemData
         newItem.ItemIcon = Resources.Load<Sprite>(_itemIcon);
         newItem.Mesh = _itemMesh;
         newItem.Type = _itemType;
+        newItem.ItemQuantity = _itemQuantity;
 
         return newItem;
     }

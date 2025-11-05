@@ -7,6 +7,7 @@ public class Inventory : MonoBehaviour
 {
     public GameObject[] hotbarSlots = new GameObject[8];
     public GameObject[] hotbarNames = new GameObject[8];
+    public GameObject[] hotbarAmount = new GameObject[8];
     public List<Item> inventory = new List<Item>();
     public int _selectedHotbarIndex = 0;
     public int money;
@@ -32,6 +33,10 @@ public class Inventory : MonoBehaviour
         {
             hotbarNames[i] = GameObject.Find("Slot_" + i+"_Text");
         }
+        for (int i = 0; i < hotbarAmount.Length; i++)
+        {
+            hotbarAmount[i] = GameObject.Find("Slot_" + i + "_Amount");
+        }
     }
     public void UpdateHotBarDisplay()
     {
@@ -39,7 +44,14 @@ public class Inventory : MonoBehaviour
         {
             hotbarSlots[i].GetComponent<Image>().sprite = inventory[i].ItemIcon;
             hotbarNames[i].GetComponent<Text>().text = inventory[i].ItemName;
+            hotbarAmount[i].GetComponent<Text>().text = "x " + inventory[i].ItemQuantity;
+            //if (inventory[i].ItemQuantity >= 0)
+            //{
+            //    inventory[i] = "";
+            //}
         }
+        
+
     }
     private void Update()
     {
