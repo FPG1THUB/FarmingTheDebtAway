@@ -1892,7 +1892,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3366889414366610719, guid: 3a4046de53984d848bd2af9741c81a4d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1160422342}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2734327887198429093, guid: 3a4046de53984d848bd2af9741c81a4d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1055673622}
   m_SourcePrefab: {fileID: 100100000, guid: 3a4046de53984d848bd2af9741c81a4d, type: 3}
 --- !u!1 &626383009
 GameObject:
@@ -3225,6 +3228,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8031339192871210686, guid: 3f9b178ccd3b86f4ebbfc1f5a2815e56, type: 3}
   m_PrefabInstance: {fileID: 1053368695}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1055673621 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2734327887198429093, guid: 3a4046de53984d848bd2af9741c81a4d, type: 3}
+  m_PrefabInstance: {fileID: 593974353}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1055673622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055673621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65d8d40b984444d439c326661153cfc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wateringManager: {fileID: 0}
 --- !u!1 &1098778158
 GameObject:
   m_ObjectHideFlags: 0
@@ -4384,9 +4405,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1495939686}
   - component: {fileID: 1495939685}
+  - component: {fileID: 1495939687}
   m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
+  m_Name: Manager
+  m_TagString: Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4422,6 +4444,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1495939687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495939684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbeaeccaf0b7d0b4a92c4cf421c4b50b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWaterAmount: 100
+  maxWaterAmount: 100
+  minWaterAmount: 0
+  waterSpeed: 5
 --- !u!1001 &1506545855
 PrefabInstance:
   m_ObjectHideFlags: 0
