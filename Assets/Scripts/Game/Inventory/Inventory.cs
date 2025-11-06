@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using System;
+using Unity.VisualScripting;
 
 public class Inventory : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Inventory : MonoBehaviour
     public GameObject[] hotbarAmount = new GameObject[8];
     public List<Item> inventory = new List<Item>();
     public int _selectedHotbarIndex = 0;
+    public GameObject currencyText;
     public int money;
 
 
@@ -19,6 +21,7 @@ public class Inventory : MonoBehaviour
         ConnectHotBar();
 
         UpdateHotBarDisplay();
+        UpdateCurrency(0);
     }
 
     void ConnectHotBar()
@@ -35,6 +38,7 @@ public class Inventory : MonoBehaviour
         {
             hotbarAmount[i] = GameObject.Find("Slot_" + i + "_Amount");
         }
+        currencyText = GameObject.Find("Currency Counter");
     }
     public void UpdateHotBarDisplay()
     {
@@ -50,12 +54,21 @@ public class Inventory : MonoBehaviour
             }
         }
     }
+    public void UpdateCurrency(int amount)
+    {
+        if ((amount + money) >= 0)
+        {
+            money += amount;
+            currencyText.GetComponent<Text>().text = "$ " + (money); 
+        }
+    }
+
     private void Update()
     {
         SelectingHotbarSlot();
        // Debug.Log(inventory[_selectedHotbarIndex]);
     }
-
+    
     private void SelectingHotbarSlot()
     {
         if (Input.GetKeyDown("1"))
@@ -107,6 +120,14 @@ public class Inventory : MonoBehaviour
 
         }
     }
+    public void UseItem()
+    {
+        //if (inventory[_selectedHotbarIndex].ItemName == "Hoe")
+        //{
+
+        //}
+    }
+
     #region My attempt
     /*
         [Serializable]
@@ -134,11 +155,5 @@ public class Inventory : MonoBehaviour
         }*/
     #endregion
 
-    void UseItem()
-    {
-        //if ()
-        //{
 
-        //}
-    }
 } 
