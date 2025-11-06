@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 202303822}
   - component: {fileID: 202303821}
   m_Layer: 5
-  m_Name: ToolTiip
+  m_Name: ToolTip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -383,10 +383,12 @@ Transform:
   m_GameObject: {fileID: 447670150}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 327.67117, y: 1, z: 986.6099}
+  m_LocalPosition: {x: 5, y: 1, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 644741332}
+  - {fileID: 1357458768}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &447670155
@@ -610,12 +612,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644741329}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.92387956, z: -0.38268343, w: 0}
-  m_LocalPosition: {x: 327.4181, y: 11, z: 996.6705}
+  m_LocalRotation: {x: 0.38268343, y: -0, z: -0, w: 0.92387956}
+  m_LocalPosition: {x: 0.25308228, y: 10, z: -10.060547}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 447670154}
   m_LocalEulerAnglesHint: {x: 45, y: 180, z: 0}
 --- !u!114 &644741333
 MonoBehaviour:
@@ -881,12 +883,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1357458763}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 327.67117, y: 1, z: 987.2299}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.6199951}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 447670154}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1357458769
 MonoBehaviour:
@@ -901,9 +903,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
-  toolTip: {fileID: 0}
+  toolTip: {fileID: 202303821}
   _offsetx: 1
   _offsetz: 1
+  refill: 0
 --- !u!54 &1357458770
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -943,8 +946,8 @@ GameObject:
   - component: {fileID: 1701301522}
   - component: {fileID: 1701301521}
   - component: {fileID: 1701301520}
-  - component: {fileID: 1701301519}
   - component: {fileID: 1701301524}
+  - component: {fileID: 1701301525}
   m_Layer: 0
   m_Name: Tap
   m_TagString: Tap
@@ -952,22 +955,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1701301519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1701301518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbeaeccaf0b7d0b4a92c4cf421c4b50b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentWaterAmount: 100
-  maxWaterAmount: 100
-  minWaterAmount: 0
-  waterSpeed: 5
 --- !u!65 &1701301520
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1051,7 +1038,7 @@ Transform:
   m_GameObject: {fileID: 1701301518}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 331.9464, y: 2.89895, z: 984.817}
+  m_LocalPosition: {x: 10, y: 1, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1084,6 +1071,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1701301525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701301518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65d8d40b984444d439c326661153cfc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wateringManager: {fileID: 1996174606}
 --- !u!1 &1878940677
 GameObject:
   m_ObjectHideFlags: 0
@@ -1218,7 +1218,7 @@ GameObject:
   - component: {fileID: 1996174606}
   m_Layer: 0
   m_Name: Managers
-  m_TagString: Untagged
+  m_TagString: Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1278,7 +1278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbeaeccaf0b7d0b4a92c4cf421c4b50b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentWaterAmount: 0
+  currentWaterAmount: 100
   maxWaterAmount: 100
   minWaterAmount: 0
   waterSpeed: 5
@@ -1290,8 +1290,6 @@ SceneRoots:
   - {fileID: 1235801756}
   - {fileID: 1996174605}
   - {fileID: 519558278}
-  - {fileID: 644741332}
   - {fileID: 447670154}
-  - {fileID: 1357458768}
   - {fileID: 306421985}
   - {fileID: 1701301523}
