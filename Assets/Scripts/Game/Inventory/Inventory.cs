@@ -136,9 +136,10 @@ public class Inventory : MonoBehaviour
 
     void UseItem()
     {
-        //if ()
+        //if (inventory[_selectedHotbarIndex].ItemName == "Something or other)
         //{
-
+        // once more scripts are complete, 
+        // I can go through this area and fill out with relations to other scripts and whether those tools will trigger it.
         //}
     }
 } 
