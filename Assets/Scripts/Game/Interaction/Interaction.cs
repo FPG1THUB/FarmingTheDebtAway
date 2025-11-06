@@ -32,8 +32,7 @@ public class Interaction : MonoBehaviour
             if (currentObject != null) // Checks to see if something is there before doing anything.
             {
                 currentObject.OnInteraction();// Goes to the gameobject, and runs it's OnInteraction function specified to the object.
-                currentObject = null; // resets it
-                toolTip.text = "";//  resets the tool tip.wa
+
             }
         }
     }
@@ -74,9 +73,11 @@ public class Interaction : MonoBehaviour
     }
     private void OnTriggerExit(Collider other) // This triggers when it stops colliding with the object.
     {
-
+        if (other.TryGetComponent<Interactable>(out Interactable interactedObject)) // Checking that it's no longer interacting with that specific object.
+        {
             currentObject = null; // resets it
             toolTip.text = "";//  resets the tool tip.
+        }
     }
     #region testing collision triggers
     //private void OnTriggerEnter(Collider other)
@@ -94,6 +95,5 @@ public class Interaction : MonoBehaviour
         Debug.Log("BOXED");
     }*/
     #endregion
-
 
 }
