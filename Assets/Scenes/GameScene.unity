@@ -188,68 +188,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 378195fd884dda844a9eb9826d658016, type: 3}
---- !u!1001 &127580164
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1671702372}
-    m_Modifications:
-    - target: {fileID: 2454080299330720037, guid: 416b35290c2f6534c9a0f17ffe7231b6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 276.8409
-      objectReference: {fileID: 0}
-    - target: {fileID: 2454080299330720037, guid: 416b35290c2f6534c9a0f17ffe7231b6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.00002
-      objectReference: {fileID: 0}
-    - target: {fileID: 2454080299330720037, guid: 416b35290c2f6534c9a0f17ffe7231b6, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 885.2908
-      objectReference: {fileID: 0}
-    - target: {fileID: 2454080299330720037, guid: 416b35290c2f6534c9a0f17ffe7231b6, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2454080299330720037, guid: 416b35290c2f6534c9a0f17ffe7231b6, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2454080299330720037, guid: 416b35290c2f6534c9a0f17ffe7231b6, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2454080299330720037, guid: 416b35290c2f6534c9a0f17ffe7231b6, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2454080299330720037, guid: 416b35290c2f6534c9a0f17ffe7231b6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2454080299330720037, guid: 416b35290c2f6534c9a0f17ffe7231b6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2454080299330720037, guid: 416b35290c2f6534c9a0f17ffe7231b6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4583873308467284080, guid: 416b35290c2f6534c9a0f17ffe7231b6, type: 3}
-      propertyPath: m_Name
-      value: InventoryHandler
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 416b35290c2f6534c9a0f17ffe7231b6, type: 3}
---- !u!4 &127580165 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2454080299330720037, guid: 416b35290c2f6534c9a0f17ffe7231b6, type: 3}
-  m_PrefabInstance: {fileID: 127580164}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &194860788 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5486202794060017500, guid: 018598330b80e104693cbaba6ced9de3, type: 3}
@@ -1044,6 +982,8 @@ GameObject:
   - component: {fileID: 1495939686}
   - component: {fileID: 1495939685}
   - component: {fileID: 1495939687}
+  - component: {fileID: 1495939689}
+  - component: {fileID: 1495939688}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Manager
@@ -1098,6 +1038,75 @@ MonoBehaviour:
   maxWaterAmount: 100
   minWaterAmount: 0
   waterSpeed: 5
+--- !u!114 &1495939688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495939684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc2b019af1d84244967e785f7c4478e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hotbarSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  hotbarNames:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  hotbarAmount:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _selectedHotbarIndex: 0
+  money: 0
+--- !u!114 &1495939689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495939684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca3a4a169bad04f43a20c8ef770afa27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeElapsed: 0
+  currentMinute: 0
+  currentHour: 0
+  currentDay: 0
+  currentWeek: 0
+  currentMonth: 0
+  currentYear: 0
+  currentSeason: 0
+  minuteDuration: 1
+  hourDuration: 60
+  dayDuration: 24
+  weekDuration: 7
+  monthDuration: 4
+  yearDuration: 12
+  timeStep: 1
+  light: {fileID: 1878940679}
 --- !u!1 &1505365472
 GameObject:
   m_ObjectHideFlags: 0
@@ -1326,7 +1335,6 @@ Transform:
   - {fileID: 659608121}
   - {fileID: 1235270525}
   - {fileID: 205478160}
-  - {fileID: 127580165}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1674887645

@@ -9,7 +9,7 @@ public class ItemHandler : MonoBehaviour, Interactable
     public void OnInteraction()
     {
         int check = -1;
-        Inventory inventory = GameObject.FindGameObjectWithTag("Inventory Manager").GetComponent<Inventory>();
+        Inventory inventory = GameObject.FindGameObjectWithTag("Manager").GetComponent<Inventory>();
         foreach (Item item in inventory.inventory)
         {
             if (item.ItemId == itemID)
