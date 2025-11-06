@@ -13,8 +13,8 @@ public class Interaction : MonoBehaviour
     [Header("Offset")]
     [SerializeField] float _offsetx = 1f; // 
     [SerializeField] float _offsetz = 1f; // 
-
-    Interactable currentObject; // Calls for the currently interacted gameobject if it exists.
+    public bool refill = false;
+   public  Interactable currentObject; // Calls for the currently interacted gameobject if it exists.
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,16 +26,36 @@ public class Interaction : MonoBehaviour
     void Update()
     {
         FollowHead();
-
-        if (Input.GetKeyDown(KeyCode.E)) // GetKeyDown means it will only trigger once, then needs to be pressed again.
+        //Checks to see if the it cannot be refilled
+        if (!refill)
         {
-            if (currentObject != null) // Checks to see if something is there before doing anything.
+            //If so, checks to see if the player has pressed E once
+            if (Input.GetKeyDown(KeyCode.E)) // GetKeyDown means it will only trigger once, then needs to be pressed again.
             {
-                currentObject.OnInteraction();// Goes to the gameobject, and runs it's OnInteraction function specified to the object.
-                currentObject = null; // resets it
-                toolTip.text = "";//  resets the tool tip.wa
+                //Is so, checks to see if an object is attached to the currentObject variable
+                if (currentObject != null) // Checks to see if something is there before doing anything.
+                {
+                    //Runs the OnInteraction on the object
+                    currentObject.OnInteraction();// Goes to the gameobject, and runs it's OnInteraction function specified to the object.
+
+                }
             }
         }
+        else
+        {
+            //If it can be refilled, then checks to see if R has been pressed
+            if (Input.GetKey(KeyCode.R)) // GetKeyDown means it will only trigger once, then needs to be pressed again.
+            {
+                //Checks to see if the object is stored in the variable
+                if (currentObject != null) // Checks to see if something is there before doing anything.
+                {
+                    //Runs the OnInteraction that is attached to the object
+                    currentObject.OnInteraction();// Goes to the gameobject, and runs it's OnInteraction function specified to the object.
+
+                }
+            }
+        }
+        
     }
     #region new Vector3 interaction attempt, make sure it's unparented, with FollowHead() function
     void FollowHead()
@@ -67,16 +87,23 @@ public class Interaction : MonoBehaviour
         {
             currentObject = interactedObject; // Sets the currentObject to the object that has the necessary script class addition.
             toolTip.text = interactedObject.ToolTip(); // If the object does not have the ToolTip function from Interactable, it will error. 
-
+            //Checks to see if the thing it collided with has the watersource script attached to it
+            if (other.GetComponent<WaterSource>() != null)
+            {
+                refill = true;
+            }
             //toolTip.transform.position = new Vector3(currentObject.transform.position.x, currentObject.transform.position.y + 1, currentObject.transform.position.z);
             // Above is for pop up text, wishful thinking for now.
         }
     }
     private void OnTriggerExit(Collider other) // This triggers when it stops colliding with the object.
     {
-
+        if (other.TryGetComponent<Interactable>(out Interactable interactedObject)) // Checking that it's no longer interacting with that specific object.
+        {
             currentObject = null; // resets it
             toolTip.text = "";//  resets the tool tip.
+            refill = false;
+        }
     }
     #region testing collision triggers
     //private void OnTriggerEnter(Collider other)
@@ -94,6 +121,5 @@ public class Interaction : MonoBehaviour
         Debug.Log("BOXED");
     }*/
     #endregion
-
 
 }
