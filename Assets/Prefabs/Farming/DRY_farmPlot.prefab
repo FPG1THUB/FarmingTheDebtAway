@@ -130,7 +130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6476954266523648025, guid: 3d9075c1c39fae446a34e44887512d22, type: 3}
       propertyPath: m_Name
-      value: DRY_farmPlot Variant 1
+      value: DRY_farmPlot
       objectReference: {fileID: 0}
     - target: {fileID: 6748828557219872521, guid: 3d9075c1c39fae446a34e44887512d22, type: 3}
       propertyPath: m_IsActive
