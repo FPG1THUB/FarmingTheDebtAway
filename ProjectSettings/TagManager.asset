@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Inventory Manager
   - Manager
+  - InteractBox
   layers:
   - Default
   - TransparentFX

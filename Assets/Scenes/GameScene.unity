@@ -952,6 +952,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InteractionBox
       objectReference: {fileID: 0}
+    - target: {fileID: 1176650231501081833, guid: 8f8b2fc813bfd0a44a70c12bfd1b1a63, type: 3}
+      propertyPath: m_TagString
+      value: InteractBox
+      objectReference: {fileID: 0}
     - target: {fileID: 4676692065028156085, guid: 8f8b2fc813bfd0a44a70c12bfd1b1a63, type: 3}
       propertyPath: toolTip
       value: 
@@ -1078,6 +1082,7 @@ MonoBehaviour:
   maxWaterAmount: 100
   minWaterAmount: 0
   waterSpeed: 5
+  interactionManager: {fileID: 0}
 --- !u!114 &1495939688
 MonoBehaviour:
   m_ObjectHideFlags: 0
