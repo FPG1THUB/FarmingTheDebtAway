@@ -13,9 +13,10 @@ public class WaterSource : MonoBehaviour,Interactable
     //Triggers when object collides 
     public void OnInteraction()
     {
-        //increases water by time and water speed
-        wateringManager.currentWaterAmount += Time.deltaTime * wateringManager.waterSpeed;
-        Debug.Log("Refilling");
+
+            //increases water by time and water speed
+            wateringManager.currentWaterAmount += Time.deltaTime * wateringManager.waterSpeed;
+            Debug.Log("Refilling");
     }
 
     public string ToolTip()
