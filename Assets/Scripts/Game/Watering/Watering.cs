@@ -12,23 +12,29 @@ public class Watering : MonoBehaviour
     public float minWaterAmount = 0f;
     //Stores the speed in which the watering can empties and refills
     public int waterSpeed = 5;
-
+    //Reference to the interaction script
+    public Interaction interactionManager;
 
     #endregion
     #region Functions
     //This is used to empty the water from the watering can
      public void EmptyWater()
      {
-        //Checks if the key E was pressed
-        if (Input.GetKey(KeyCode.E))
+        //Checks to see if the player is currently trying to skip the time
+        if (!interactionManager.skip)
         {
-            //Checks to see if the current water amount if greater than the minimum and lower or the same amount as the maximum that the can can hold
-            if(currentWaterAmount > minWaterAmount && currentWaterAmount <= maxWaterAmount)
+            //Checks if the key E was pressed
+            if (Input.GetKey(KeyCode.E))
             {
-                //Decreases the amount of water held based off of time and the speed of the water
-                currentWaterAmount -= Time.deltaTime * waterSpeed;
+                //Checks to see if the current water amount if greater than the minimum and lower or the same amount as the maximum that the can can hold
+                if (currentWaterAmount > minWaterAmount && currentWaterAmount <= maxWaterAmount)
+                {
+                    //Decreases the amount of water held based off of time and the speed of the water
+                    currentWaterAmount -= Time.deltaTime * waterSpeed;
+                }
             }
         }
+
      }
     #endregion
     #region Unity Callbacks
@@ -49,6 +55,12 @@ public class Watering : MonoBehaviour
             //Sets teh current water amount to minimum
             currentWaterAmount = minWaterAmount;
         }
+    }
+    //Called on the first frame of the game
+    private void Start()
+    {
+        //retrieves the interaction script through the find game object wiht tag and get component
+        interactionManager = GameObject.FindGameObjectWithTag("InteractBox").GetComponent<Interaction>();
     }
     #endregion
 }

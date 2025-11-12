@@ -14,6 +14,7 @@ public class Interaction : MonoBehaviour
     [SerializeField] float _offsetx = 1f; // 
     [SerializeField] float _offsetz = 1f; // 
     public bool refill = false;
+    public bool skip = false;
    public  Interactable currentObject; // Calls for the currently interacted gameobject if it exists.
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,7 +28,7 @@ public class Interaction : MonoBehaviour
     {
         FollowHead();
         //Checks to see if the it cannot be refilled
-        if (!refill)
+        if (!refill && !skip)
         {
             //If so, checks to see if the player has pressed E once
             if (Input.GetKeyDown(KeyCode.E)) // GetKeyDown means it will only trigger once, then needs to be pressed again.
@@ -51,10 +52,23 @@ public class Interaction : MonoBehaviour
                 {
                     //Runs the OnInteraction that is attached to the object
                     currentObject.OnInteraction();// Goes to the gameobject, and runs it's OnInteraction function specified to the object.
-
+                    
                 }
             }
         }
+        if(skip)
+        {
+            if(Input.GetKeyDown(KeyCode.E))
+            {
+                if ((currentObject != null))
+                {
+                    currentObject.OnInteraction();
+                }
+
+            }
+        }
+
+
         
     }
     #region new Vector3 interaction attempt, make sure it's unparented, with FollowHead() function
@@ -92,6 +106,10 @@ public class Interaction : MonoBehaviour
             {
                 refill = true;
             }
+            if(other.GetComponent<SkipTime>() != null)
+            {
+                skip = true;
+            }
             //toolTip.transform.position = new Vector3(currentObject.transform.position.x, currentObject.transform.position.y + 1, currentObject.transform.position.z);
             // Above is for pop up text, wishful thinking for now.
         }
@@ -103,6 +121,7 @@ public class Interaction : MonoBehaviour
             currentObject = null; // resets it
             toolTip.text = "";//  resets the tool tip.
             refill = false;
+            skip = false;
         }
     }
     #region testing collision triggers
