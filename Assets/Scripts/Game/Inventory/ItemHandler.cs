@@ -36,6 +36,7 @@ public class ItemHandler : MonoBehaviour, Interactable
 
             inventory.UpdateHotBarDisplay();
             Destroy(gameObject);
+            
         }
     }
 
