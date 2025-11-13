@@ -14,7 +14,7 @@ public class Inventory : MonoBehaviour
     public GameObject currencyText;
     public int money;
 
-
+    public Sprite emptyItemSlot;
     public void Start()
     {
         // connect our hotbar slots to the UI elements
@@ -51,6 +51,7 @@ public class Inventory : MonoBehaviour
             if (inventory[i].ItemQuantity <= 0)
             {
                 inventory.Remove(inventory[i]); // Clears out the inventory slot.
+                hotbarSlots[i].GetComponent<Image>().sprite = emptyItemSlot;
             }
         }
     }
@@ -59,14 +60,28 @@ public class Inventory : MonoBehaviour
         if ((amount + money) >= 0)
         {
             money += amount;
-            currencyText.GetComponent<Text>().text = "$ " + (money); 
+            currencyText.GetComponent<Text>().text = "$" + (money); 
         }
+    }
+    void RemoveTest()
+    {
+        foreach (var item in inventory)
+        {
+            item.ItemQuantity--;
+        }
+        UpdateHotBarDisplay();
     }
 
     private void Update()
     {
         SelectingHotbarSlot();
-       // Debug.Log(inventory[_selectedHotbarIndex]);
+        // Debug.Log(inventory[_selectedHotbarIndex]);
+#if UNITY_EDITOR
+        if(Input.GetKeyDown(KeyCode.Minus))
+        {
+            RemoveTest();
+        }
+#endif
     }
     
     private void SelectingHotbarSlot()
