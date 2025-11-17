@@ -21,6 +21,7 @@ public class Interaction : MonoBehaviour
     {
         _player = GameObject.FindGameObjectWithTag("Player").transform;
         //this way it can automatically find the player model, if it is properly tagged.
+        
     }
 
     // Update is called once per frame
@@ -38,7 +39,8 @@ public class Interaction : MonoBehaviour
                 {
                     //Runs the OnInteraction on the object
                     currentObject.OnInteraction();// Goes to the gameobject, and runs it's OnInteraction function specified to the object.
-
+                    currentObject = null; // this means that it will stop interacting with the object, good for if the item get's destroyed and the player can do a quick spin to re-interact with the item again.
+                    toolTip.text = "";
                 }
             }
         }
@@ -52,7 +54,6 @@ public class Interaction : MonoBehaviour
                 {
                     //Runs the OnInteraction that is attached to the object
                     currentObject.OnInteraction();// Goes to the gameobject, and runs it's OnInteraction function specified to the object.
-                    
                 }
             }
         }
@@ -63,6 +64,8 @@ public class Interaction : MonoBehaviour
                 if ((currentObject != null))
                 {
                     currentObject.OnInteraction();
+                    currentObject = null;
+                    toolTip.text = "";
                 }
 
             }
