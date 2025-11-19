@@ -37,7 +37,7 @@ Created the health, stamina and mana bar, and implemented the PlayerStats script
 ### Scripts
 | Collection | Naming Convention |
 | -----------| :------------: |
-| Scropt | Function.cs |
+| Script | Function.cs |
 | Class, struct, interface, delegate | Pascal Casing - e.g. "Player Movement" |
 | Public Variables | Camel casing - e.g. "moveForward" |
 | Private and internal variables | Camel casing and "_" - e.g. "_gatherPlant" |
@@ -61,7 +61,7 @@ Root
                    ⌊  Document 
 ## Assigned Tasks
 | Member Name | Assigned Tasks |
-| ---------- | : -----------: |
+| ---------- | :-----------:|
 | Zachary Androvich | Programmer, assigned to walking, camera, interaction, inventory, and shop screen. |
 | Ethan Flemming | |
 | Brianna Zarman | |
