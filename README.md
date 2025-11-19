@@ -63,7 +63,7 @@ Root
 | Member Name | Assigned Tasks |
 | ---------- | : -----------: |
 | Zachary Androvich | Programmer, assigned to walking, camera, interaction, inventory, and shop screen. |
-| Ethan Flemming | 
-| Brianna Zarman | 
-| Elijah McGowan |
-| Benjamin Semler | 
+| Ethan Flemming | |
+| Brianna Zarman | |
+| Elijah McGowan | |
+| Benjamin Semler | UI art, UI implementation and HUD implementation. |
