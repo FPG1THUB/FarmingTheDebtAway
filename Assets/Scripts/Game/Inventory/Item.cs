@@ -9,7 +9,7 @@ public class Item
     private string _itemDescription;
     private int _itemValue;
     private Sprite _itemIcon;
-    private GameObject _itemMesh;
+    private string _itemMesh;
     private ItemType _itemType;
     private int _itemQuantity;
     // public properties to access stats
@@ -43,7 +43,7 @@ public class Item
         set { _itemIcon = value; }
     }
 
-    public GameObject Mesh
+    public string Mesh
     {
         get { return _itemMesh; }
         set { _itemMesh = value; }
