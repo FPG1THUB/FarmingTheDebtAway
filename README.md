@@ -63,7 +63,7 @@ Root
 | Member Name | Assigned Tasks |
 | ---------- | :-----------:|
 | Zachary Androvich | Programmer, assigned to walking, camera, interaction, inventory, and shop screen. |
-| Ethan Flemming | | Programmer, assigned to Planting, Growing, and Harvesting, Watering, Time and Save/Load progress mechanics|
+| Ethan Flemming | | Programmer, assigned to Planting, Growing, and Harvesting, Watering, Time and Save/Load progress mechanics. |
 | Brianna Zarman | |
 | Elijah McGowan | |
 | Benjamin Semler | UI art, UI implementation and HUD implementation. |
