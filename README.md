@@ -64,6 +64,6 @@ Root
 | ---------- | :-----------:|
 | Zachary Androvich | Programmer, assigned to walking, camera, interaction, inventory, and shop screen. |
 | Ethan Flemming | Programmer, assigned to Planting, Growing, and Harvesting, Watering, Time and Save/Load progress mechanics. |
-| Brianna Zarman | | Art & Narrative Direction; responsible for third-party placeholder asset implementation, audio sourcing, 2D assets design/implementation, and general management of art assets.
+| Brianna Zarman | Art & Narrative Direction; responsible for third-party placeholder asset implementation, audio sourcing, 2D assets design/implementation, and general management of art assets. |
 | Elijah McGowan | |
 | Benjamin Semler | UI art, UI implementation and HUD implementation. |
