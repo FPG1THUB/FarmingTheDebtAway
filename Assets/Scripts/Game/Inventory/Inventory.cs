@@ -42,6 +42,8 @@ public class Inventory : MonoBehaviour
     }
     public void UpdateHotBarDisplay()
     {
+        //for (int x = 0; 0 < 2; x++)
+        //{
         for (int i = 0; i < inventory.Count; i++)
         {
 
@@ -51,8 +53,25 @@ public class Inventory : MonoBehaviour
             if (inventory[i].ItemQuantity <= 0)
             {
                 inventory.Remove(inventory[i]); // Clears out the inventory slot.
+                hotbarSlots[inventory.Count].GetComponent<Image>().sprite = Resources.Load<Sprite>("Icons/box for inventory");
+                hotbarNames[inventory.Count].GetComponent<Text>().text = "";
+                hotbarAmount[inventory.Count].GetComponent<Text>().text = "";
+                if (inventory.Count != 1)
+                {
+                    hotbarSlots[i].GetComponent<Image>().sprite = inventory[i].ItemIcon;
+                    hotbarNames[i].GetComponent<Text>().text = inventory[i].ItemName;
+                    hotbarAmount[i].GetComponent<Text>().text = "x " + inventory[i].ItemQuantity;
+                }
+                else
+                {
+                    hotbarSlots[i].GetComponent<Image>().sprite = Resources.Load<Sprite>("Icons/box for inventory");
+                    hotbarNames[i].GetComponent<Text>().text = "";
+                    hotbarAmount[i].GetComponent<Text>().text = "";
+                }
             }
         }
+
+        //}
     }
     public void UpdateCurrency(int amount)
     {

@@ -23,10 +23,10 @@ public class Transaction : MonoBehaviour
             if (item.ItemId == itemID)
             {
                 item.ItemQuantity -= amount;
-                whatPlayerHas.UpdateCurrency(moneyValue);
-                whatPlayerHas.UpdateHotBarDisplay();
+                whatPlayerHas.UpdateCurrency(moneyValue);                
             }
         }
+        whatPlayerHas.UpdateHotBarDisplay();
     }
 
     public void BuyItem()
@@ -42,6 +42,7 @@ public class Transaction : MonoBehaviour
                     check = 1;
                     //increase item
                     item.ItemQuantity += amount; // allows for adding multiples
+                    
                 }
             }
             if (check != 1)
@@ -50,9 +51,9 @@ public class Transaction : MonoBehaviour
                 whatPlayerHas.inventory.Add(ItemData.CreateItem(itemID));
                 //and set value to the amount we add 
                 int temp = whatPlayerHas.inventory.Count;
-                whatPlayerHas.inventory[temp - 1].ItemQuantity = amount; // 
-                whatPlayerHas.UpdateHotBarDisplay();
+                whatPlayerHas.inventory[temp - 1].ItemQuantity = amount; //                 
             }
+            whatPlayerHas.UpdateHotBarDisplay();
         }
     }
     public void UpgradingWateringCan()
