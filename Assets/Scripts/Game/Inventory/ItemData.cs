@@ -106,7 +106,7 @@ public static class ItemData
         newItem.ItemDescription = _itemDescription;
         newItem.Value = _itemValue;
         newItem.ItemIcon = Resources.Load<Sprite>(_itemIcon);
-        newItem.Mesh = _itemMesh;
+        newItem.Mesh = Resources.Load<GameObject>(_itemMesh);
         newItem.Type = _itemType;
         newItem.ItemQuantity = _itemQuantity;
 
