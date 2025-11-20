@@ -56,17 +56,11 @@ public class Inventory : MonoBehaviour
                 hotbarSlots[inventory.Count].GetComponent<Image>().sprite = Resources.Load<Sprite>("Icons/box for inventory");
                 hotbarNames[inventory.Count].GetComponent<Text>().text = "";
                 hotbarAmount[inventory.Count].GetComponent<Text>().text = "";
-                if (inventory.Count != 1)
+                if (inventory.Count != 0)
                 {
                     hotbarSlots[i].GetComponent<Image>().sprite = inventory[i].ItemIcon;
                     hotbarNames[i].GetComponent<Text>().text = inventory[i].ItemName;
                     hotbarAmount[i].GetComponent<Text>().text = "x " + inventory[i].ItemQuantity;
-                }
-                else
-                {
-                    hotbarSlots[i].GetComponent<Image>().sprite = Resources.Load<Sprite>("Icons/box for inventory");
-                    hotbarNames[i].GetComponent<Text>().text = "";
-                    hotbarAmount[i].GetComponent<Text>().text = "";
                 }
             }
         }
