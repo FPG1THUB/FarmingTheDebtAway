@@ -42,7 +42,6 @@ public class ItemHandler : MonoBehaviour, Interactable
 
     public string ToolTip() // don't worry about it for now
     {
-        Debug.Log("");
         return "Press E to Harvest";
     }
 }
