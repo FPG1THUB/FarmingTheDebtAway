@@ -1604,9 +1604,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 8645255147405714866, guid: e078843954fc72141955d2abd9d27dc0, type: 3}
         m_TargetAssemblyTypeName: ActivateShopScreen, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: UnfreezeTime
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -21,6 +21,7 @@ public class Interaction : MonoBehaviour
     {
         _player = GameObject.FindGameObjectWithTag("Player").transform;
         //this way it can automatically find the player model, if it is properly tagged.
+        toolTip = GameObject.Find("ToolTip").GetComponent<Text>();
         
     }
 
