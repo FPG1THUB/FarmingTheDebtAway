@@ -122,10 +122,10 @@ public class Inventory : MonoBehaviour
     }
     public void UseItem()
     {
-        //if (inventory[_selectedHotbarIndex].ItemName == "Hoe")
-        //{
+        if (inventory[_selectedHotbarIndex].ItemName == "Hoe")
+        {
 
-        //}
+        }
     }
 
     #region My attempt

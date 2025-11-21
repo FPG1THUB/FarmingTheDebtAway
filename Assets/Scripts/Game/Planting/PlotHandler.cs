@@ -1,12 +1,18 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Rendering;
 
-public class PlotHandler : MonoBehaviour
+public class PlotHandler : MonoBehaviour, Interactable
 {
+    //Handles the inventory manager to fetch the tools and seeds
     public Inventory inventoryManager;
+    //Handles the watering manager to fetch the amount of water
     public Watering wateringManager;
     public GameObject[] plotPrefabs = new GameObject[3];
     public PlotStates plotStates = PlotStates.NotPrepped;
+    public float floatWaterProgress;
+    public int waterProgress;
+    public int timeTakesToWaterPlot = 3;
 
     private void Start()
     {
@@ -45,17 +51,68 @@ public class PlotHandler : MonoBehaviour
         plotPrefabs[currentState].SetActive(true);
 
     }
-    public void UseItems()
-    {
-        if (inventoryManager._selectedHotbarIndex == 0)
-        {
-
-        }
-    }
     public void Update()
     {
         SwitchStates();
     }
+    public void UseItem()
+    {
+        if (inventoryManager.inventory[inventoryManager._selectedHotbarIndex].ItemName == "Hoe")
+        {
+            if (plotStates == PlotStates.NotPrepped)
+            {
+                plotStates = PlotStates.Dry;
+                SwitchStates();
+            }
+        }
+        else if (inventoryManager.inventory[inventoryManager._selectedHotbarIndex].ItemName == "Watering Can")
+        {
+            if (plotStates == PlotStates.Dry)
+            {
+                if (wateringManager.currentWaterAmount! < 0)
+                {
+                    wateringManager.currentWaterAmount -= Time.deltaTime * wateringManager.waterSpeed;
+                    floatWaterProgress -= Time.deltaTime * wateringManager.waterSpeed;
+                    if (floatWaterProgress > 0)
+                    {
+                        waterProgress++;
+                    }
+                    if (waterProgress == timeTakesToWaterPlot)
+                    {
+                        plotStates = PlotStates.Wet;
+                        floatWaterProgress = 0;
+                        waterProgress = 0;
+                    }
+                }
+
+            }
+        }
+    }
+
+    public void OnInteraction()
+    {
+        UseItem();
+    }
+
+    public string ToolTip()
+    {
+        if (plotStates == PlotStates.NotPrepped)
+        {
+            if(inventoryManager.inventory[inventoryManager._selectedHotbarIndex].ItemName == "Hoe")
+            {
+                return "Press E to till";
+            }
+        }
+        else if(plotStates == PlotStates.Dry)
+        {
+            if(inventoryManager.inventory[inventoryManager._selectedHotbarIndex].ItemName == "Watering Can")
+            {
+                return "Hold E to water";
+            }
+        }
+        return null;
+    }
+    
 }
 
 public enum PlotStates

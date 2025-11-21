@@ -15,6 +15,7 @@ public class Interaction : MonoBehaviour
     [SerializeField] float _offsetz = 1f; // 
     public bool refill = false;
     public bool skip = false;
+    public bool isWateringPlot = false;
    public  Interactable currentObject; // Calls for the currently interacted gameobject if it exists.
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -70,6 +71,16 @@ public class Interaction : MonoBehaviour
 
             }
         }
+        if(isWateringPlot)
+        {
+            if(Input.GetKey(KeyCode.F))
+            {
+                if(currentObject != null)
+                {
+                    currentObject.OnInteraction();
+                }
+            }
+        }
 
 
         
@@ -113,6 +124,10 @@ public class Interaction : MonoBehaviour
             {
                 skip = true;
             }
+            if(other.GetComponent<PlotHandler>() != null) 
+            {
+                isWateringPlot = true;
+            }
             //toolTip.transform.position = new Vector3(currentObject.transform.position.x, currentObject.transform.position.y + 1, currentObject.transform.position.z);
             // Above is for pop up text, wishful thinking for now.
         }
@@ -125,6 +140,7 @@ public class Interaction : MonoBehaviour
             toolTip.text = "";//  resets the tool tip.
             refill = false;
             skip = false;
+            isWateringPlot = false;
         }
     }
     #region testing collision triggers
