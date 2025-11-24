@@ -275,7 +275,7 @@ GameObject:
   - component: {fileID: 7709671743943728226}
   m_Layer: 0
   m_Name: PlotSlot
-  m_TagString: Untagged
+  m_TagString: Plot Slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -312,11 +312,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryManager: {fileID: 0}
   wateringManager: {fileID: 0}
+  timeManager: {fileID: 0}
   plotPrefabs:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   plotStates: 0
+  floatWaterProgress: 0
+  waterProgress: 0
+  timeTakesToWaterPlot: 3
 --- !u!65 &7709671743943728226
 BoxCollider:
   m_ObjectHideFlags: 0

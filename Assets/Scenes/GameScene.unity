@@ -196,6 +196,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 485902668}
     m_Modifications:
+    - target: {fileID: 295385624812485308, guid: d31799c899a15dc4e885d1e34002e816, type: 3}
+      propertyPath: m_TagString
+      value: Plot Slot
+      objectReference: {fileID: 0}
+    - target: {fileID: 2073655696144500525, guid: d31799c899a15dc4e885d1e34002e816, type: 3}
+      propertyPath: m_TagString
+      value: Plot Slot
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308453169144571021, guid: d31799c899a15dc4e885d1e34002e816, type: 3}
+      propertyPath: m_TagString
+      value: Plot Slot
+      objectReference: {fileID: 0}
+    - target: {fileID: 2835811319738254972, guid: d31799c899a15dc4e885d1e34002e816, type: 3}
+      propertyPath: m_TagString
+      value: Plot Slot
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131103380774943118, guid: d31799c899a15dc4e885d1e34002e816, type: 3}
+      propertyPath: m_TagString
+      value: Plot Slot
+      objectReference: {fileID: 0}
+    - target: {fileID: 3283083207416756564, guid: d31799c899a15dc4e885d1e34002e816, type: 3}
+      propertyPath: m_TagString
+      value: Plot Slot
+      objectReference: {fileID: 0}
+    - target: {fileID: 3722303802406998277, guid: d31799c899a15dc4e885d1e34002e816, type: 3}
+      propertyPath: m_TagString
+      value: Plot Slot
+      objectReference: {fileID: 0}
+    - target: {fileID: 4328951950279920149, guid: d31799c899a15dc4e885d1e34002e816, type: 3}
+      propertyPath: m_TagString
+      value: Plot Slot
+      objectReference: {fileID: 0}
     - target: {fileID: 5322378581307857399, guid: d31799c899a15dc4e885d1e34002e816, type: 3}
       propertyPath: m_LocalPosition.x
       value: 48.36
@@ -236,9 +268,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5383538310511263984, guid: d31799c899a15dc4e885d1e34002e816, type: 3}
+      propertyPath: m_TagString
+      value: Plot Slot
+      objectReference: {fileID: 0}
+    - target: {fileID: 5434951977436451255, guid: d31799c899a15dc4e885d1e34002e816, type: 3}
+      propertyPath: m_TagString
+      value: Plot Slot
+      objectReference: {fileID: 0}
+    - target: {fileID: 6627647302038811700, guid: d31799c899a15dc4e885d1e34002e816, type: 3}
+      propertyPath: m_TagString
+      value: Plot Slot
+      objectReference: {fileID: 0}
     - target: {fileID: 7246283263706839967, guid: d31799c899a15dc4e885d1e34002e816, type: 3}
       propertyPath: m_Name
       value: Farm_Plot (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911686576206565231, guid: d31799c899a15dc4e885d1e34002e816, type: 3}
+      propertyPath: m_TagString
+      value: Plot Slot
+      objectReference: {fileID: 0}
+    - target: {fileID: 8009714621855728680, guid: d31799c899a15dc4e885d1e34002e816, type: 3}
+      propertyPath: timeTakesToWaterPlot
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -903,6 +955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f3a9aa9c781cdd419486b1a123997a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shopScreen: {fileID: 0}
 --- !u!224 &795564225 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5029956818112354394, guid: 202272d4b8094c544a0ee75ccea39815, type: 3}
@@ -1645,10 +1698,11 @@ MonoBehaviour:
   hourDuration: 60
   dayDuration: 24
   weekDuration: 7
-  monthDuration: 4
+  monthDuration: 30
   yearDuration: 12
   timeStep: 1
   light: {fileID: 1878940679}
+  plotHandler: {fileID: 0}
 --- !u!1 &1505365472
 GameObject:
   m_ObjectHideFlags: 0

@@ -185,6 +185,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlotSlot 1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7114629676940308801, guid: 507429da169dd094ab8d9068881f5ffc, type: 3}
+      propertyPath: m_TagString
+      value: Plot Slot
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -258,6 +262,10 @@ PrefabInstance:
     - target: {fileID: 7114629676940308801, guid: 507429da169dd094ab8d9068881f5ffc, type: 3}
       propertyPath: m_Name
       value: PlotSlot 3 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7114629676940308801, guid: 507429da169dd094ab8d9068881f5ffc, type: 3}
+      propertyPath: m_TagString
+      value: Plot Slot
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -333,6 +341,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlotSlot 1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7114629676940308801, guid: 507429da169dd094ab8d9068881f5ffc, type: 3}
+      propertyPath: m_TagString
+      value: Plot Slot
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -406,6 +418,10 @@ PrefabInstance:
     - target: {fileID: 7114629676940308801, guid: 507429da169dd094ab8d9068881f5ffc, type: 3}
       propertyPath: m_Name
       value: PlotSlot 4 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7114629676940308801, guid: 507429da169dd094ab8d9068881f5ffc, type: 3}
+      propertyPath: m_TagString
+      value: Plot Slot
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -481,6 +497,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlotSlot 4
       objectReference: {fileID: 0}
+    - target: {fileID: 7114629676940308801, guid: 507429da169dd094ab8d9068881f5ffc, type: 3}
+      propertyPath: m_TagString
+      value: Plot Slot
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -554,6 +574,10 @@ PrefabInstance:
     - target: {fileID: 7114629676940308801, guid: 507429da169dd094ab8d9068881f5ffc, type: 3}
       propertyPath: m_Name
       value: PlotSlot 2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7114629676940308801, guid: 507429da169dd094ab8d9068881f5ffc, type: 3}
+      propertyPath: m_TagString
+      value: Plot Slot
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -629,6 +653,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlotSlot 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7114629676940308801, guid: 507429da169dd094ab8d9068881f5ffc, type: 3}
+      propertyPath: m_TagString
+      value: Plot Slot
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -702,6 +730,10 @@ PrefabInstance:
     - target: {fileID: 7114629676940308801, guid: 507429da169dd094ab8d9068881f5ffc, type: 3}
       propertyPath: m_Name
       value: PlotSlot 4 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7114629676940308801, guid: 507429da169dd094ab8d9068881f5ffc, type: 3}
+      propertyPath: m_TagString
+      value: Plot Slot
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -777,6 +809,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlotSlot 3 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7114629676940308801, guid: 507429da169dd094ab8d9068881f5ffc, type: 3}
+      propertyPath: m_TagString
+      value: Plot Slot
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -850,6 +886,10 @@ PrefabInstance:
     - target: {fileID: 7114629676940308801, guid: 507429da169dd094ab8d9068881f5ffc, type: 3}
       propertyPath: m_Name
       value: PlotSlot 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7114629676940308801, guid: 507429da169dd094ab8d9068881f5ffc, type: 3}
+      propertyPath: m_TagString
+      value: Plot Slot
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -925,6 +965,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlotSlot 2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7114629676940308801, guid: 507429da169dd094ab8d9068881f5ffc, type: 3}
+      propertyPath: m_TagString
+      value: Plot Slot
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -998,6 +1042,10 @@ PrefabInstance:
     - target: {fileID: 7114629676940308801, guid: 507429da169dd094ab8d9068881f5ffc, type: 3}
       propertyPath: m_Name
       value: PlotSlot 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7114629676940308801, guid: 507429da169dd094ab8d9068881f5ffc, type: 3}
+      propertyPath: m_TagString
+      value: Plot Slot
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

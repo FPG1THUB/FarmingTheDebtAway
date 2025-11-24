@@ -8,6 +8,7 @@ TagManager:
   - Manager
   - InteractBox
   - ShopScreen
+  - Plot Slot
   layers:
   - Default
   - TransparentFX

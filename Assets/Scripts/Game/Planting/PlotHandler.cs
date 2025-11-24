@@ -8,6 +8,8 @@ public class PlotHandler : MonoBehaviour, Interactable
     public Inventory inventoryManager;
     //Handles the watering manager to fetch the amount of water
     public Watering wateringManager;
+    //Handles the time manager to fetch the current time
+    public TimeManager timeManager;
     public GameObject[] plotPrefabs = new GameObject[3];
     public PlotStates plotStates = PlotStates.NotPrepped;
     public float floatWaterProgress;
@@ -23,6 +25,7 @@ public class PlotHandler : MonoBehaviour, Interactable
         SwitchStates();
         wateringManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<Watering>();
         inventoryManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<Inventory>();
+        timeManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<TimeManager>();
     }
     public void SwitchStates()
     {
@@ -65,15 +68,16 @@ public class PlotHandler : MonoBehaviour, Interactable
                 SwitchStates();
             }
         }
-        else if (inventoryManager.inventory[inventoryManager._selectedHotbarIndex].ItemName == "Watering Can")
+        if (inventoryManager.inventory[inventoryManager._selectedHotbarIndex].ItemName == "Watering Can")
         {
             if (plotStates == PlotStates.Dry)
             {
-                if (wateringManager.currentWaterAmount! < 0)
+                if (wateringManager.currentWaterAmount >= 0)
                 {
+                    //Come back to this, it works but it waters the plot too fast
                     wateringManager.currentWaterAmount -= Time.deltaTime * wateringManager.waterSpeed;
-                    floatWaterProgress -= Time.deltaTime * wateringManager.waterSpeed;
-                    if (floatWaterProgress > 0)
+                    floatWaterProgress += Time.deltaTime * wateringManager.waterSpeed;
+                    if (floatWaterProgress >= 1)
                     {
                         waterProgress++;
                     }
@@ -83,8 +87,10 @@ public class PlotHandler : MonoBehaviour, Interactable
                         floatWaterProgress = 0;
                         waterProgress = 0;
                     }
+                    
                 }
 
+                Debug.Log("Water the Plot Slot");
             }
         }
     }
@@ -112,7 +118,13 @@ public class PlotHandler : MonoBehaviour, Interactable
         }
         return null;
     }
-    
+    public void SwitchPlotStateBasedByTime()
+    {
+        if(timeManager.currentHour == 0 || timeManager.currentHour == 6)
+        {
+            Debug.Log("Next Day");
+        }
+    }
 }
 
 public enum PlotStates

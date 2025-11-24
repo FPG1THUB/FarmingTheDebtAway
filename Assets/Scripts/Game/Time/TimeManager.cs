@@ -39,6 +39,9 @@ public class TimeManager : MonoBehaviour
 
     [Space(10), Header("Light Manipulation")]
     public Light light;
+
+    [Space(10), Header("Managers")]
+    public PlotHandler plotHandler;
     #endregion
     #region Time Update Functions
     //Function to handle the updating time of minutes
@@ -193,6 +196,10 @@ public class TimeManager : MonoBehaviour
     private void LateUpdate()
     {
         RotateLight();
+    }
+    private void Start()
+    {
+
     }
     #endregion
 }
