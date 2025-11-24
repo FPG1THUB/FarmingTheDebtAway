@@ -61,11 +61,13 @@ public class Inventory : MonoBehaviour
                 hotbarSlots[inventory.Count].GetComponent<Image>().sprite = Resources.Load<Sprite>("Icons/box for inventory");
                 hotbarNames[inventory.Count].GetComponent<Text>().text = "";
                 hotbarAmount[inventory.Count].GetComponent<Text>().text = "";
-                if (inventory.Count != 0)
+                if ((inventory.Count != 0) && i != inventory.Count) // this checks to make sure that the object being deleted isn't the only thing in the inventory, and isn't the item in the last slot.
                 {
+                    // puts the item that is now in the slot into the visual.
                     hotbarSlots[i].GetComponent<Image>().sprite = inventory[i].ItemIcon;
                     hotbarNames[i].GetComponent<Text>().text = inventory[i].ItemName;
                     hotbarAmount[i].GetComponent<Text>().text = "x " + inventory[i].ItemQuantity;
+
                 }
             }
         }
