@@ -15,7 +15,8 @@ public static class DefaultControls
         "Jump",      // Jump action
         "Sprint",    // Sprint or run
         "Crouch",    // Crouch or sneak
-        "Interact"   // Interact with objects or NPCs
+        "Interact",   // Interact with objects or NPCs
+        "Refill"      // refill watering can
     };
 
     // Default keys assigned to each action above.
@@ -29,6 +30,7 @@ public static class DefaultControls
         "Space",         // Jump
         "LeftShift",     // Sprint
         "LeftControl",   // Crouch
-        "E"              // Interact
+        "E",              // Interact
+        "R"              // refill watering can
     };
 }
