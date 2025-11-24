@@ -9,6 +9,7 @@ public class Inventory : MonoBehaviour
     public GameObject[] hotbarSlots = new GameObject[8];
     public GameObject[] hotbarNames = new GameObject[8];
     public GameObject[] hotbarAmount = new GameObject[8];
+    public GameObject[] hotbarBackground = new GameObject[8];
     public List<Item> inventory = new List<Item>();
     public int _selectedHotbarIndex = 0;
     public GameObject currencyText;
@@ -39,6 +40,10 @@ public class Inventory : MonoBehaviour
             hotbarAmount[i] = GameObject.Find("Slot_" + i + "_Amount");
         }
         currencyText = GameObject.Find("Currency Counter");
+        for (int i = 0; i < hotbarBackground.Length; i++)
+        {
+            hotbarBackground[i] = GameObject.Find("Slot_" + i + "_BackgroundImage");
+        }
     }
     public void UpdateHotBarDisplay()
     {
@@ -84,6 +89,7 @@ public class Inventory : MonoBehaviour
     
     private void SelectingHotbarSlot()
     {
+        hotbarBackground[_selectedHotbarIndex].GetComponent<Image>().sprite = Resources.Load<Sprite>("Icons/box for inventory");
         if (Input.GetKeyDown("1"))
         {
             _selectedHotbarIndex = 0;
@@ -132,6 +138,7 @@ public class Inventory : MonoBehaviour
             Debug.Log(_selectedHotbarIndex);
 
         }
+        hotbarBackground[_selectedHotbarIndex].GetComponent<Image>().sprite = Resources.Load<Sprite>("Icons/box highlighted");
     }
     public void UseItem()
     {
