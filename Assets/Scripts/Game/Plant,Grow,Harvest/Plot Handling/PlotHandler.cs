@@ -5,7 +5,7 @@ using UnityEngine.Rendering;
 public class PlotHandler : MonoBehaviour, Interactable
 {
     #region Variables
-    //Handles the inventory manager to fetch the tools and seeds
+    //Handles the inventory manager to fetch the tools
     public Inventory inventoryManager;
     //Handles the watering manager to fetch the amount of water
     public Watering wateringManager;

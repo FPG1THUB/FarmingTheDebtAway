@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4d0c5b79fee51f042991ece92fc20d6f
+guid: 3cd086d695ec4454baca0ef3eaef48e4
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,13 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Teen_carrot1
-    second: {fileID: 2100000, guid: 8de93a1fdbe03b34ab42c039709e5aa3, type: 2}
+      name: Adult_Carrot
+    second: {fileID: 2100000, guid: 492fa8c607e97d44989067d2b3f32d61, type: 2}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Teen_Carrot_V1
-    second: {fileID: 2800000, guid: a041da3b79fc31c4e9f339cf63df9c10, type: 3}
+      name: Adult_Carrot_V1
+    second: {fileID: 2800000, guid: 0648b64bb30be68498620ccb47db7084, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
