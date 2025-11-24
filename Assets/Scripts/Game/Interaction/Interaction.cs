@@ -8,21 +8,21 @@ public class Interaction : MonoBehaviour
     // In the rigidbody, freeze it's rotations and positions
     [SerializeField] Transform _player; // An empty object that I can assign the player capsule to.
     public Text toolTip; // Empty text box for tool tip to
-   // [SerializeField] public TextMesh toolTip; // for pop up text, wishful thinking list
-   // Look up worldspace ui if i want to do pop up text
+                         // [SerializeField] public TextMesh toolTip; // for pop up text, wishful thinking list
+                         // Look up worldspace ui if i want to do pop up text
     [Header("Offset")]
     [SerializeField] float _offsetx = 1f; // 
     [SerializeField] float _offsetz = 1f; // 
     public bool refill = false;
     public bool skip = false;
-   public  Interactable currentObject; // Calls for the currently interacted gameobject if it exists.
+    public Interactable currentObject; // Calls for the currently interacted gameobject if it exists.
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player").transform;
         //this way it can automatically find the player model, if it is properly tagged.
         toolTip = GameObject.Find("ToolTip").GetComponent<Text>();
-        
+
     }
 
     // Update is called once per frame
@@ -33,7 +33,7 @@ public class Interaction : MonoBehaviour
         if (!refill && !skip)
         {
             //If so, checks to see if the player has pressed E once
-            if (Input.GetKeyDown(KeyCode.E)) // GetKeyDown means it will only trigger once, then needs to be pressed again.
+            if (Input.GetKey(KeybindManager.keys["Interact"])) // GetKeyDown means it will only trigger once, then needs to be pressed again.
             {
                 //Is so, checks to see if an object is attached to the currentObject variable
                 if (currentObject != null) // Checks to see if something is there before doing anything.
@@ -48,7 +48,7 @@ public class Interaction : MonoBehaviour
         else
         {
             //If it can be refilled, then checks to see if R has been pressed
-            if (Input.GetKey(KeyCode.R)) // GetKeyDown means it will only trigger once, then needs to be pressed again.
+            if (Input.GetKey(KeybindManager.keys["Refill"])) // GetKeyDown means it will only trigger once, then needs to be pressed again.
             {
                 //Checks to see if the object is stored in the variable
                 if (currentObject != null) // Checks to see if something is there before doing anything.
@@ -58,9 +58,9 @@ public class Interaction : MonoBehaviour
                 }
             }
         }
-        if(skip)
+        if (skip)
         {
-            if(Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKey(KeybindManager.keys["Interact"]))
             {
                 if ((currentObject != null))
                 {
@@ -73,26 +73,26 @@ public class Interaction : MonoBehaviour
         }
 
 
-        
+
     }
     #region new Vector3 interaction attempt, make sure it's unparented, with FollowHead() function
     void FollowHead()
     {
         // Places the InteractionBox directly ahead of wherever the player is heading.
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeybindManager.keys["Forward"]))
         {
-            transform.position = new Vector3(_player.transform.position.x, _player.transform.position.y, _player.transform.position.z-_offsetz);
+            transform.position = new Vector3(_player.transform.position.x, _player.transform.position.y, _player.transform.position.z - _offsetz);
         }
-        else if (Input.GetKey(KeyCode.S))
+        else if (Input.GetKey(KeybindManager.keys["Backward"]))
         {
             transform.position = new Vector3(_player.transform.position.x, _player.transform.position.y, _player.transform.position.z + _offsetz);
         }
 
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeybindManager.keys["Right"]))
         {
-            transform.position = new Vector3(_player.transform.position.x-_offsetx, _player.transform.position.y, _player.transform.position.z);
+            transform.position = new Vector3(_player.transform.position.x - _offsetx, _player.transform.position.y, _player.transform.position.z);
         }
-        else if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeybindManager.keys["Left"]))
         {
             transform.position = new Vector3(_player.transform.position.x + _offsetx, _player.transform.position.y, _player.transform.position.z);
         }
@@ -110,7 +110,7 @@ public class Interaction : MonoBehaviour
             {
                 refill = true;
             }
-            if(other.GetComponent<SkipTime>() != null)
+            if (other.GetComponent<SkipTime>() != null)
             {
                 skip = true;
             }

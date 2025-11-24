@@ -35,15 +35,15 @@ public class PlayerMovement : MonoBehaviour
             if (_characterController.isGrounded)
             {
                 // Check if the player is pressing the Left movement key
-              //  if (Input.GetKey(KeybindManager.keys["Left"]))
-              if(Input.GetKey(KeyCode.A))
+                if (Input.GetKey(KeybindManager.keys["Left"]))
+              //if(Input.GetKey(KeyCode.A))
                 {
                     // Set the horizontal input to -1 (move left)
                     newInput.x = -1;
                 }
                 // Check if the player is pressing the Right movement key
-                //else if (Input.GetKey(KeybindManager.keys["Right"]))
-                else if (Input.GetKey(KeyCode.D))
+                else if (Input.GetKey(KeybindManager.keys["Right"]))
+                //else if (Input.GetKey(KeyCode.D))
 
                 {
                     // Set the horizontal input to 1 (move right)
@@ -57,15 +57,15 @@ public class PlayerMovement : MonoBehaviour
                 }
 
                 // Check if the player is pressing the Backward movement key
-                // if (Input.GetKey(KeybindManager.keys["Backward"]))
-                if (Input.GetKey(KeyCode.S))
+                if (Input.GetKey(KeybindManager.keys["Backward"]))
+                //if (Input.GetKey(KeyCode.S))
                 {
                     // Set the vertical input to -1 (move backward)
                     newInput.y = -1;
                 }
                 // Check if the player is pressing the Forward movement key
-                // else if (Input.GetKey(KeybindManager.keys["Forward"]))
-                else if (Input.GetKey(KeyCode.W))
+                else if (Input.GetKey(KeybindManager.keys["Forward"]))
+                //else if (Input.GetKey(KeyCode.W))
                 {
                     // Set the vertical input to 1 (move forward)
                     newInput.y = 1;
