@@ -5,5 +5,5 @@ public interface Interactable // Attach to script to make it Interactable.
 
     //void OnInteraction(): This is a method that any class implementing Interactable must define.
     void OnInteraction(); // if need an example, look at TestInteract to see it.
-    string ToolTip();
+    string ToolTip(); // just requires a 'return "E for Tooltip" at the end of it.
 }

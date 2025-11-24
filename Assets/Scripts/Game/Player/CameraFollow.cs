@@ -19,7 +19,7 @@ public class CameraFollow : MonoBehaviour
     void LateUpdate()
     {
         transform.position = new Vector3(_player.transform.position.x + _offsetx, this.transform.position.y, _player.transform.position.z + _offsetz);
-        // the player.transform.position grabs the relevent coordinate from the object.
+        // the player.transform.position grabs the relevent coordinate from the object and keeps copying the players co-ordinates.
     }
 
 }

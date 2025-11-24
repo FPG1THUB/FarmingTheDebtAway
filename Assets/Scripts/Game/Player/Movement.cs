@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        Move();
+        Move(); // This way it keeps repeating if someone holds a key down.
     }
     void Move()
     {
