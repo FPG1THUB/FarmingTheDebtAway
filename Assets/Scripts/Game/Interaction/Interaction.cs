@@ -78,7 +78,7 @@ public class Interaction : MonoBehaviour
     #region new Vector3 interaction attempt, make sure it's unparented, with FollowHead() function
     void FollowHead()
     {
-        // Places the InteractionBox directly ahead of wherever the player is heading.
+        // Places the InteractionBox directly ahead of wherever the player is heading via copying the players input.
         if (Input.GetKey(KeybindManager.keys["Forward"]))
         {
             transform.position = new Vector3(_player.transform.position.x, _player.transform.position.y, _player.transform.position.z - _offsetz);
