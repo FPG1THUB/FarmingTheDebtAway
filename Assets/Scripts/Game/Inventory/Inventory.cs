@@ -65,6 +65,7 @@ public class Inventory : MonoBehaviour
 
     private void Update()
     {
+        UpdateHotBarDisplay();
         SelectingHotbarSlot();
        // Debug.Log(inventory[_selectedHotbarIndex]);
     }

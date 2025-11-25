@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class Interaction : MonoBehaviour
 {
+    //reference to the inventory so that the plot handler can distinguish between the plot handling and crop handling
+    public Inventory inventoryManager;
     // Make sure the InteractionBox has RigidBody component.
     // In the rigidbody, freeze it's rotations and positions
     [SerializeField] Transform _player; // An empty object that I can assign the player capsule to.
@@ -17,14 +19,18 @@ public class Interaction : MonoBehaviour
     public bool refill = false;
     //bool to check whether the time script is trying to skip the time
     public bool skip = false;
-    //bool to check whether the plot handler script is trying to water a plot
-    public bool isWateringPlot = false;
+    //bool to check whether the plot handler script is trying to handle a plot
+    public bool isHandlingPlot = false;
+    //bool to check whether the crop handler is trying to handle crops
+    public bool isHandlingCrops = false;
    public  Interactable currentObject; // Calls for the currently interacted gameobject if it exists.
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player").transform;
         //this way it can automatically find the player model, if it is properly tagged.
+        //Retrieves the inventory script from the manager
+        inventoryManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<Inventory>();
         
     }
 
@@ -33,7 +39,7 @@ public class Interaction : MonoBehaviour
     {
         FollowHead();
         //Checks to see if the watering script is not trying to refill, the time script is not trying to skip, and the plot handler script is not trying to water a plot
-        if (!refill && !skip && !isWateringPlot)
+        if (!refill && !skip && !isHandlingPlot && !isHandlingCrops)
         {
             //If so, checks to see if the player has pressed E once
             if (Input.GetKeyDown(KeyCode.E)) // GetKeyDown means it will only trigger once, then needs to be pressed again.
@@ -80,7 +86,7 @@ public class Interaction : MonoBehaviour
             }
         }
         //Checks to see if the plot handler script is trying to water a plot
-        if(isWateringPlot)
+        if(isHandlingPlot)
         {
             //Checks to see if the player is holding down E
             if(Input.GetKey(KeyCode.E))
@@ -89,6 +95,16 @@ public class Interaction : MonoBehaviour
                 if(currentObject != null)
                 {
                     //if so, runs the on interaction function attached to that object
+                    currentObject.OnInteraction();
+                }
+            }
+        }
+        if(isHandlingCrops)
+        {
+            if(Input.GetKeyDown(KeyCode.E))
+            {
+                if(currentObject != null)
+                {
                     currentObject.OnInteraction();
                 }
             }
@@ -142,8 +158,17 @@ public class Interaction : MonoBehaviour
             //Checks to see if the thing the player collided with has the plot handler script attached to it
             if(other.GetComponent<PlotHandler>() != null) 
             {
-                //if so, set isWateringPlot true to show that the player is trying to water the plot
-                isWateringPlot = true;
+                if (inventoryManager.inventory[inventoryManager._selectedHotbarIndex].ItemName == "Watering Can" ||
+                    inventoryManager.inventory[inventoryManager._selectedHotbarIndex].ItemName == "Hoe")
+                {
+                    isHandlingPlot = true;
+                }
+                else if(inventoryManager.inventory[inventoryManager._selectedHotbarIndex].ItemName == "Tomato Seed" ||
+                    inventoryManager.inventory[inventoryManager._selectedHotbarIndex].ItemName == "Potato Seed" ||
+                    inventoryManager.inventory[inventoryManager._selectedHotbarIndex].ItemName == "Carrot Seed")
+                {
+                    isHandlingCrops = true;
+                }
             }
             //toolTip.transform.position = new Vector3(currentObject.transform.position.x, currentObject.transform.position.y + 1, currentObject.transform.position.z);
             // Above is for pop up text, wishful thinking for now.
@@ -157,7 +182,8 @@ public class Interaction : MonoBehaviour
             toolTip.text = "";//  resets the tool tip.
             refill = false; //sets refill off
             skip = false;//sets skip off
-            isWateringPlot = false;//sets isWateringPlot off
+            isHandlingPlot = false;//sets isHandlingPlot off
+            isHandlingCrops=false; //sets isHandlingCrops off
         }
     }
     #region testing collision triggers

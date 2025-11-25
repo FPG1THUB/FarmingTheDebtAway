@@ -196,37 +196,53 @@ public class CropHandler : MonoBehaviour
             //Checks to see if there is no crop on the plot
             if (currentCrop == Crops.None)
             {
-                //Checks to see if the currently selected seed is a carrot seed
-                if (inventoryManager.inventory[inventoryManager._selectedHotbarIndex].ItemName == "Carrot Seed")
+                //Checks to see if the currently selected seed is a carrot seed and if the player has enough seeds to plant it
+                if (inventoryManager.inventory[inventoryManager._selectedHotbarIndex].ItemName == "Carrot Seed" 
+                    && inventoryManager.inventory[inventoryManager._selectedHotbarIndex].ItemQuantity >= 1)
                 {
                     //reduces the carrot seed quantity by 1
                     inventoryManager.inventory[inventoryManager._selectedHotbarIndex].ItemQuantity--;
+                    //Logs how many seeds the player has
+                    Debug.Log($"Current Amount of Carrot Seeds:{inventoryManager.inventory[inventoryManager._selectedHotbarIndex].ItemQuantity}");
                     //Sets the progress by day to 0, which will be used to progress the crop to different stages
                     timeManager.progressByDay = 0;
+                    //Sets the current crop to carrot
+                    currentCrop = Crops.carrot;
+                    //sets the state of the crop to planted
+                    growthState = GrowthState.planted;
+
                 }
-                //if the above is false, checks to see if the player is trying to plan a potato seed
-                else if (inventoryManager.inventory[inventoryManager._selectedHotbarIndex].ItemName == "Potato Seed")
+                //if the above is false, checks to see if the player is trying to plan a potato seed and if the player has enough seeds to plant it
+                else if (inventoryManager.inventory[inventoryManager._selectedHotbarIndex].ItemName == "Potato Seed"
+                    && inventoryManager.inventory[inventoryManager._selectedHotbarIndex].ItemQuantity >= 1)
                 {
                     //removes the potato seed by 1 in the inventory
                     inventoryManager.inventory[inventoryManager._selectedHotbarIndex].ItemQuantity--;
+                    //Logs how many seeds the player has
+                    Debug.Log($"Current Amount of Potato Seeds:{inventoryManager.inventory[inventoryManager._selectedHotbarIndex].ItemQuantity}");
                     //sets the current crop to potato
                     currentCrop = Crops.potato;
                     //Sets the current growth state to planted
                     growthState = GrowthState.planted;
                     //Sets the progress by day to 0, which will be used to progress the crop to different stages
                     timeManager.progressByDay = 0;
+
                 }
-                //If the above is false, checks to see if the player has seeds selected
-                else if (inventoryManager.inventory[inventoryManager._selectedHotbarIndex].ItemName == "Tomato Seed")
+                //If the above is false, checks to see if the player has tomato seeds selected and has enough to plant them
+                else if (inventoryManager.inventory[inventoryManager._selectedHotbarIndex].ItemName == "Tomato Seed" 
+                    && inventoryManager.inventory[inventoryManager._selectedHotbarIndex].ItemQuantity >= 1)
                 {
                     //reduces the tomato seed quantity by 1
                     inventoryManager.inventory[inventoryManager._selectedHotbarIndex].ItemQuantity--;
+                    //Logs how many seeds the player has
+                    Debug.Log($"Current Amount of Tomato Seeds:{inventoryManager.inventory[inventoryManager._selectedHotbarIndex].ItemQuantity}");
                     //Sets the current crop on the plot
                     currentCrop = Crops.tomato;
                     //Sets teh current growth state to planted
                     growthState = GrowthState.planted;
                     //Sets the progress by day to 0, which will be used to progress the crop to different stages
                    timeManager.progressByDay = 0;
+
                 }
                 //of everything above is false, do this
                 else
@@ -256,21 +272,6 @@ public class CropHandler : MonoBehaviour
         //Checks to see if the plot is not not prepped state and that there is a crop on it
         if(plotHandler.plotStates != PlotStates.NotPrepped && currentCrop != Crops.None)
         {
-            ////Checks to see if the current crop is carrot
-            //if(currentCrop == Crops.carrot)
-            //{
-            //    //Sets the different days in which the carrot should progress to the next stage
-            //    growthProgress = new int[3] {2, 3, 4};
-            //    //Checks to see if the progress by day has reached the baby stage
-            //    if(timeManager.progressByDay == growthProgress[0])
-            //    {
-            //        //Sets the crop to baby stage
-            //        growthState = GrowthState.baby;
-            //    }
-            //    else if(timeManager.progressByDay == growthProgress[1])
-            //    {
-            //        growthState = GrowthState.teen;
-            //    }
             switch (currentCrop)
             {
                 case Crops.carrot:
@@ -299,6 +300,12 @@ public class CropHandler : MonoBehaviour
                 growthState = GrowthState.adult;
             }
         }
+        if(plotHandler.plotStates == PlotStates.NotPrepped)
+        {
+            growthState = GrowthState.planted;
+            currentCrop = Crops.None;
+            growthProgress = new int[0];
+        }
     }
     //Function to make it so that whenever the time managers progress by day goes beyone 10, it will turn to 0, and constantly updates the local version to match the 
     public void CalculateDayProgress()
@@ -312,7 +319,21 @@ public class CropHandler : MonoBehaviour
         //Displays the time manager progress by day on a local variable for debugging purposes
         progressByDay = timeManager.progressByDay;
     }
-    
+
+
+
+    #endregion
+    #region Harvesting Crops
+    public void HarvestCrop()
+    {
+        if(growthState == GrowthState.adult)
+        {
+            growthState = GrowthState.planted;
+            currentCrop = Crops.None;
+            growthProgress = new int[0];
+
+        }
+    }
     #endregion
 }
 #region enums

@@ -11,6 +11,12 @@ public class PlotHandler : MonoBehaviour, Interactable
     public Watering wateringManager;
     //Handles the time manager to fetch the current time
     public TimeManager timeManager;
+    //Handles the interaction manager to fetch whether the interaction is to handle the plot or the crop
+    public Interaction interactionManager;
+    //Object to fetch the crop handler attached to the object
+    public GameObject crops;
+    //Crop Handling script to be able to plant the crops with one collider instead of one inside the existing collider
+    public CropHandler cropHandler;
     //References the 3 plot states as prefabs
     public GameObject[] plotPrefabs = new GameObject[3];
     //References the current state of the plot
@@ -21,6 +27,7 @@ public class PlotHandler : MonoBehaviour, Interactable
     public int waterProgress;
     //Sets the time it should take to water
     public int timeTakesToWaterPlot = 3;
+
     #endregion
     #region Unity Callbacks
     //Called on the first frame
@@ -40,6 +47,8 @@ public class PlotHandler : MonoBehaviour, Interactable
         inventoryManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<Inventory>();
         //retrieves the time manager from the manager object
         timeManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<TimeManager>();
+        //Grabs the crop handler script from the crop
+        cropHandler = cropHandler.GetComponent<CropHandler>();
     }
     //called on every frame
     public void Update()
@@ -110,7 +119,7 @@ public class PlotHandler : MonoBehaviour, Interactable
             if (plotStates == PlotStates.Dry)
             {
                 //checks to see if there is any water in the watering can
-                if (wateringManager.currentWaterAmount >= 0)
+                if (wateringManager.currentWaterAmount > 0)
                 {
 
                     //while emptying the water, it will also progress watering the plot in float format so that it can be calculated with time.deltatime
@@ -157,8 +166,12 @@ public class PlotHandler : MonoBehaviour, Interactable
     //occurs when trying to interact with something that has this script attached to it
     public void OnInteraction()
     {
-        //calls the use item function
-        UseItem();
+       //calls the use item function
+       UseItem();
+       //Calls the plant crops form the crop handler script
+       cropHandler.PlantCrops();
+        //Calls the harvest crop from the crop handler script
+        cropHandler.HarvestCrop();
     }
     //Occurs when trying to interact with something, and wants to display something
     public string ToolTip()
@@ -174,7 +187,7 @@ public class PlotHandler : MonoBehaviour, Interactable
             }
         }
         //if not, then checks to see if the current plot state is dry
-        else if(plotStates == PlotStates.Dry)
+        else if(plotStates == PlotStates.Dry && wateringManager.currentWaterAmount > 0)
         {
             //checks to see if the currently equipped item is the watering can
             if(inventoryManager.inventory[inventoryManager._selectedHotbarIndex].ItemName == "Watering Can")
@@ -183,6 +196,25 @@ public class PlotHandler : MonoBehaviour, Interactable
                 //displays "Press E to water"
                 return "Hold E to water";
             }
+        }
+        //Checsk to see if there is no water in the watering can
+        else if (wateringManager.currentWaterAmount <= 0)
+        {
+            //Checks to see if the currently equipped item is the watering can
+            if (inventoryManager.inventory[inventoryManager._selectedHotbarIndex].ItemName == "Watering Can")
+            {
+                //lets the player know they are out of water
+                return "You are out of water! Go refill your watering can!";
+
+            }
+
+        }
+        if (inventoryManager.inventory[inventoryManager._selectedHotbarIndex].ItemName == "Carrot Seed"
+            || inventoryManager.inventory[inventoryManager._selectedHotbarIndex].ItemName == "Potato Seed"
+            || inventoryManager.inventory[inventoryManager._selectedHotbarIndex].ItemName == "Tomato Seed"
+            && plotStates != PlotStates.NotPrepped)
+        {
+            return "Plant Seed";
         }
         //else display nothing
         return null;
