@@ -112,8 +112,7 @@ public class PlotHandler : MonoBehaviour, Interactable
                 //checks to see if there is any water in the watering can
                 if (wateringManager.currentWaterAmount >= 0)
                 {
-                    //if so, it will start emptying the can based on time and water speed
-                    wateringManager.currentWaterAmount -= Time.deltaTime * wateringManager.waterSpeed;
+
                     //while emptying the water, it will also progress watering the plot in float format so that it can be calculated with time.deltatime
                     floatWaterProgress += Time.deltaTime *wateringManager.waterSpeed;
                     //checks to see if the float water progress has reached 1
@@ -180,6 +179,7 @@ public class PlotHandler : MonoBehaviour, Interactable
             //checks to see if the currently equipped item is the watering can
             if(inventoryManager.inventory[inventoryManager._selectedHotbarIndex].ItemName == "Watering Can")
             {
+                
                 //displays "Press E to water"
                 return "Hold E to water";
             }

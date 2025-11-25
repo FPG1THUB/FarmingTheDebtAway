@@ -13,8 +13,11 @@ public class Interaction : MonoBehaviour
     [Header("Offset")]
     [SerializeField] float _offsetx = 1f; // 
     [SerializeField] float _offsetz = 1f; // 
+    //Bool to check whether the watering script is trying to refill the current water amount
     public bool refill = false;
+    //bool to check whether the time script is trying to skip the time
     public bool skip = false;
+    //bool to check whether the plot handler script is trying to water a plot
     public bool isWateringPlot = false;
    public  Interactable currentObject; // Calls for the currently interacted gameobject if it exists.
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -29,8 +32,8 @@ public class Interaction : MonoBehaviour
     void Update()
     {
         FollowHead();
-        //Checks to see if the it cannot be refilled
-        if (!refill && !skip)
+        //Checks to see if the watering script is not trying to refill, the time script is not trying to skip, and the plot handler script is not trying to water a plot
+        if (!refill && !skip && !isWateringPlot)
         {
             //If so, checks to see if the player has pressed E once
             if (Input.GetKeyDown(KeyCode.E)) // GetKeyDown means it will only trigger once, then needs to be pressed again.
@@ -58,25 +61,34 @@ public class Interaction : MonoBehaviour
                 }
             }
         }
+        //Checks to see if the time script is trying to skip the time
         if(skip)
         {
+            //Checks to see if E has been pressed once
             if(Input.GetKeyDown(KeyCode.E))
             {
+                //Checks to see if there is an existing object that the player is trying to interact with
                 if ((currentObject != null))
                 {
+                    //Runs the on interaction function on the attached script of the existing object
                     currentObject.OnInteraction();
+                    //resets the current object
                     currentObject = null;
                     toolTip.text = "";
                 }
 
             }
         }
+        //Checks to see if the plot handler script is trying to water a plot
         if(isWateringPlot)
         {
-            if(Input.GetKey(KeyCode.F))
+            //Checks to see if the player is holding down E
+            if(Input.GetKey(KeyCode.E))
             {
+                //Checks to see if there is an existin object the player is trying to interact with
                 if(currentObject != null)
                 {
+                    //if so, runs the on interaction function attached to that object
                     currentObject.OnInteraction();
                 }
             }
@@ -118,14 +130,19 @@ public class Interaction : MonoBehaviour
             //Checks to see if the thing it collided with has the watersource script attached to it
             if (other.GetComponent<WaterSource>() != null)
             {
+                //if so, set refill to true to show that the player is trying to refill their watering can
                 refill = true;
             }
+            //Checks to see if the object the player collided with has the skip time script attached to it
             if(other.GetComponent<SkipTime>() != null)
             {
+                //if so, set skip to true to show that the player is trying to skip the time
                 skip = true;
             }
+            //Checks to see if the thing the player collided with has the plot handler script attached to it
             if(other.GetComponent<PlotHandler>() != null) 
             {
+                //if so, set isWateringPlot true to show that the player is trying to water the plot
                 isWateringPlot = true;
             }
             //toolTip.transform.position = new Vector3(currentObject.transform.position.x, currentObject.transform.position.y + 1, currentObject.transform.position.z);
@@ -138,9 +155,9 @@ public class Interaction : MonoBehaviour
         {
             currentObject = null; // resets it
             toolTip.text = "";//  resets the tool tip.
-            refill = false;
-            skip = false;
-            isWateringPlot = false;
+            refill = false; //sets refill off
+            skip = false;//sets skip off
+            isWateringPlot = false;//sets isWateringPlot off
         }
     }
     #region testing collision triggers

@@ -281,8 +281,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 0.34867388, z: 1}
-  m_Center: {x: 0, y: 0.013032168, z: 0}
+  m_Size: {x: 0.66074467, y: 0.34867388, z: 0.72141886}
+  m_Center: {x: -0.03712797, y: 0.013032168, z: -0.038817644}
 --- !u!1 &6440526781242747025
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,6 +293,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1375126449238614341}
   - component: {fileID: 6873418643745055413}
+  - component: {fileID: 5583473561215749920}
   m_Layer: 0
   m_Name: Crops
   m_TagString: Untagged
@@ -353,10 +354,29 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  carrotState: 0
-  potatoState: 0
-  tomatoState: 0
+  growthState: 0
   currentCrop: 0
+--- !u!65 &5583473561215749920
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6440526781242747025}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.36589956, y: 0.5529661, z: 0.43097782}
+  m_Center: {x: -0.00916028, y: 0.22351694, z: -0.05346346}
 --- !u!1 &7032475201646689742
 GameObject:
   m_ObjectHideFlags: 0

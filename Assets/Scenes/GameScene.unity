@@ -1965,6 +1965,7 @@ MonoBehaviour:
   minWaterAmount: 0
   waterSpeed: 5
   interactionManager: {fileID: 0}
+  inventoryManager: {fileID: 0}
 --- !u!114 &1495939688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2035,7 +2036,7 @@ MonoBehaviour:
   yearDuration: 12
   timeStep: 1
   light: {fileID: 1878940679}
-  plotHandler: {fileID: 0}
+  progressByDay: 0
 --- !u!1 &1505365472
 GameObject:
   m_ObjectHideFlags: 0

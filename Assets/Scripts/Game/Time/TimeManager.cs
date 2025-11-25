@@ -40,8 +40,8 @@ public class TimeManager : MonoBehaviour
     [Space(10), Header("Light Manipulation")]
     public Light light;
 
-    [Space(10), Header("Managers")]
-    public PlotHandler plotHandler;
+    [Space(10), Header("variable for PGH")]
+    public int progressByDay;
     #endregion
     #region Time Update Functions
     //Function to handle the updating time of minutes
@@ -106,6 +106,7 @@ public class TimeManager : MonoBehaviour
     {
         //adds the days according to how many days it wants to add when it gets called
         currentDay += daysToAdd;
+        progressByDay += daysToAdd;
         //Checks to see if the days have reached how many days are in a week, which by default is 7
         while (currentDay >= weekDuration)
         {

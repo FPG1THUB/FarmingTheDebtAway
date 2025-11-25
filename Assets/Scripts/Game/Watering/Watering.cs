@@ -14,6 +14,8 @@ public class Watering : MonoBehaviour
     public int waterSpeed = 5;
     //Reference to the interaction script
     public Interaction interactionManager;
+    //Reference to the inventory script
+    public Inventory inventoryManager;
 
     #endregion
     #region Functions
@@ -23,16 +25,19 @@ public class Watering : MonoBehaviour
         //Checks to see if the player is currently trying to skip the time
         if (!interactionManager.skip)
         {
-            //Checks if the key E was pressed
-            if (Input.GetKey(KeyCode.E))
-            {
-                //Checks to see if the current water amount if greater than the minimum and lower or the same amount as the maximum that the can can hold
-                if (currentWaterAmount > minWaterAmount && currentWaterAmount <= maxWaterAmount)
+
+                //Checks if the key E was pressed
+                if (Input.GetKey(KeyCode.E))
                 {
-                    //Decreases the amount of water held based off of time and the speed of the water
-                    currentWaterAmount -= Time.deltaTime * waterSpeed;
+                    //Checks to see if the current water amount if greater than the minimum and lower or the same amount as the maximum that the can can hold
+                    if (currentWaterAmount > minWaterAmount && currentWaterAmount <= maxWaterAmount)
+                    {
+                        //Decreases the amount of water held based off of time and the speed of the water
+                        currentWaterAmount -= Time.deltaTime * waterSpeed;
+                    }
                 }
-            }
+            
+
         }
 
      }
@@ -41,8 +46,12 @@ public class Watering : MonoBehaviour
     //Called once per frame
     public void Update()
     {
-        //Calls onb the Empty Water function
-        EmptyWater();
+        if (inventoryManager.inventory[inventoryManager._selectedHotbarIndex].ItemName == "Watering Can")
+        {
+            //Calls onb the Empty Water function
+            EmptyWater();
+        }
+
         //Checks to see if the current water amount has gone past the max amount
         if (currentWaterAmount > maxWaterAmount)
         {
@@ -59,8 +68,10 @@ public class Watering : MonoBehaviour
     //Called on the first frame of the game
     private void Start()
     {
-        //retrieves the interaction script through the find game object wiht tag and get component
+        //retrieves the interaction script through the find game object with tag and get component
         interactionManager = GameObject.FindGameObjectWithTag("InteractBox").GetComponent<Interaction>();
+        //retrieves the inventory script through the game game object with tag and get component
+        inventoryManager = GameObject.FindGameObjectWithTag("Manager").GetComponent <Inventory>();
     }
     #endregion
 }
