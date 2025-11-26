@@ -4,6 +4,7 @@ public class SkipTime : MonoBehaviour, Interactable
 {
     //Reference to the time manager script
     public TimeManager timeManager;
+    PlotHandler[] plotHandlers;
     //is called on once the player has come into contact and attempted to interact with an object that is interactable
     public void OnInteraction()
     {
@@ -23,6 +24,8 @@ public class SkipTime : MonoBehaviour, Interactable
     {
         //Finds and attaches the time manager script onto the time manager variable
         timeManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<TimeManager>();
+        plotHandlers = FindObjectsByType<PlotHandler>(FindObjectsInactive.Exclude,FindObjectsSortMode.None);
+        SkiptheTime();
     }
     //function to skip the time to 1 day ahead at 6am in the morning
     public void SkiptheTime()
@@ -33,5 +36,29 @@ public class SkipTime : MonoBehaviour, Interactable
         timeManager.currentHour = 6;
         //Sets the current minute to 0
         timeManager.currentMinute = 0;
+        //Trigger plot code here...Figure that out later...
+        /*
+            issue 
+            need to shout at all plots in scene to run code...
+            actually not issue think i have an idea...remind me of idea later
+         
+         */
+        foreach (PlotHandler plot in plotHandlers)
+        {
+            plot.SwitchPlotStateBasedByTime();
+        }
+    }
+    void Update()
+    {
+        if(timeManager.currentHour == 2 && timeManager.currentMinute >= 30)
+        {
+            //probs look into using a coroutine ... research that shit yea
+            //Pause time
+            //fade to black
+            //make a comment about being tired
+            SkiptheTime();
+            //un pause time
+            //fade to transparent ...back to game
+        }
     }
 }
