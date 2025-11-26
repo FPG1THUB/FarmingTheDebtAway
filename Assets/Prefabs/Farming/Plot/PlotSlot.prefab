@@ -667,9 +667,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5611497185627155485, guid: 4bf9910b8ddb47d42a31a0cec0d1a090, type: 3}
       insertIndex: -1
       addedObject: {fileID: 92934377080923413}
-    - targetCorrespondingSourceObject: {fileID: 5611497185627155485, guid: 4bf9910b8ddb47d42a31a0cec0d1a090, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7204119436651749568}
   m_SourcePrefab: {fileID: 100100000, guid: 4bf9910b8ddb47d42a31a0cec0d1a090, type: 3}
 --- !u!4 &6028101216838061962 stripped
 Transform:
@@ -714,23 +711,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 865ef04455455f24491b1e47658cbee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cropHandler: {fileID: 6873418643745055413}
---- !u!114 &7204119436651749568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6729450664243393348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1883977116b5dd43bec1a3fc209bd0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   itemID: 101
   itemName: Potato
   amount: 1
   moneyValue: 0
+  cropHandler: {fileID: 6873418643745055413}
 --- !u!1001 &6135002632938392893
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -828,9 +813,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1185600869536970426, guid: 23ffb9ebd0462b34f947cfdb9306d3fa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6453369263472594399}
-    - targetCorrespondingSourceObject: {fileID: 1185600869536970426, guid: 23ffb9ebd0462b34f947cfdb9306d3fa, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7671680705413977130}
   m_SourcePrefab: {fileID: 100100000, guid: 23ffb9ebd0462b34f947cfdb9306d3fa, type: 3}
 --- !u!4 &4768953683450038753 stripped
 Transform:
@@ -875,23 +857,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 865ef04455455f24491b1e47658cbee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cropHandler: {fileID: 6873418643745055413}
---- !u!114 &7671680705413977130
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4996728214262135687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1883977116b5dd43bec1a3fc209bd0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemID: 100
-  itemName: Carrot
-  amount: 1
+  itemID: 0
+  itemName: 
+  amount: 0
   moneyValue: 0
+  cropHandler: {fileID: 6873418643745055413}
 --- !u!1001 &8088156614934529097
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1035,9 +1005,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 474087485587409691, guid: df8095eccfe186549b7cfd4547dfba2e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3845449053526667321}
-    - targetCorrespondingSourceObject: {fileID: 474087485587409691, guid: df8095eccfe186549b7cfd4547dfba2e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8609375480043257901}
   m_SourcePrefab: {fileID: 100100000, guid: df8095eccfe186549b7cfd4547dfba2e, type: 3}
 --- !u!4 &1082466471751384793 stripped
 Transform:
@@ -1061,20 +1028,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 865ef04455455f24491b1e47658cbee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cropHandler: {fileID: 6873418643745055413}
---- !u!114 &8609375480043257901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8550835515228901202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1883977116b5dd43bec1a3fc209bd0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   itemID: 102
   itemName: Tomato
   amount: 1
   moneyValue: 0
+  cropHandler: {fileID: 6873418643745055413}

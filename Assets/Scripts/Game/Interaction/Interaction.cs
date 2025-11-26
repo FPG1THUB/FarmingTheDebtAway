@@ -31,7 +31,6 @@ public class Interaction : MonoBehaviour
         //this way it can automatically find the player model, if it is properly tagged.
         //Retrieves the inventory script from the manager
         inventoryManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<Inventory>();
-        
     }
 
     // Update is called once per frame
@@ -117,20 +116,20 @@ public class Interaction : MonoBehaviour
     void FollowHead()
     {
         // Places the InteractionBox directly ahead of wherever the player is heading.
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeybindManager.keys["Forward"]))
         {
             transform.position = new Vector3(_player.transform.position.x, _player.transform.position.y, _player.transform.position.z-_offsetz);
         }
-        else if (Input.GetKey(KeyCode.S))
+        else if (Input.GetKey(KeybindManager.keys["Backward"]))
         {
             transform.position = new Vector3(_player.transform.position.x, _player.transform.position.y, _player.transform.position.z + _offsetz);
         }
 
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeybindManager.keys["Right"]))
         {
             transform.position = new Vector3(_player.transform.position.x-_offsetx, _player.transform.position.y, _player.transform.position.z);
         }
-        else if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeybindManager.keys["Left"]))
         {
             transform.position = new Vector3(_player.transform.position.x + _offsetx, _player.transform.position.y, _player.transform.position.z);
         }

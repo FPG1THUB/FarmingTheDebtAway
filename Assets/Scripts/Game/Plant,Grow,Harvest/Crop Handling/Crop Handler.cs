@@ -256,6 +256,7 @@ public class CropHandler : MonoBehaviour
                 //If there is a crop planted in the plot, tell the dev what the crop is and what growth state it is at
                 Debug.Log($"currently planted crop:{currentCrop}, current growth stage: {growthState}");
             }
+            inventoryManager.UpdateHotBarDisplay();
         }
         else
         {
@@ -331,6 +332,7 @@ public class CropHandler : MonoBehaviour
             growthState = GrowthState.planted;
             currentCrop = Crops.None;
             growthProgress = new int[0];
+            
 
         }
     }

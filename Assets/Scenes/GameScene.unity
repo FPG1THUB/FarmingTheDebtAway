@@ -1169,6 +1169,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &795167265 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4899365519395213470, guid: ef973121a54f5ac42a8476c6740c84f8, type: 3}
+  m_PrefabInstance: {fileID: 500313415}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &795564225 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5029956818112354394, guid: 202272d4b8094c544a0ee75ccea39815, type: 3}
@@ -1528,7 +1539,11 @@ PrefabInstance:
     - target: {fileID: 4676692065028156085, guid: 8f8b2fc813bfd0a44a70c12bfd1b1a63, type: 3}
       propertyPath: toolTip
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 795167265}
+    - target: {fileID: 7399886221584924983, guid: 8f8b2fc813bfd0a44a70c12bfd1b1a63, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f5cae966d1cecb4284445bb3995de77, type: 2}
     - target: {fileID: 7881494038692387014, guid: 8f8b2fc813bfd0a44a70c12bfd1b1a63, type: 3}
       propertyPath: m_LocalPosition.x
       value: -55.08123
