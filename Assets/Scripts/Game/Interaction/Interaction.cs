@@ -95,6 +95,7 @@ public class Interaction : MonoBehaviour
                 {
                     //if so, runs the on interaction function attached to that object
                     currentObject.OnInteraction();
+
                 }
             }
         }
@@ -105,6 +106,9 @@ public class Interaction : MonoBehaviour
                 if(currentObject != null)
                 {
                     currentObject.OnInteraction();
+                    //resets the current object
+                    currentObject = null;
+                    toolTip.text = "";
                 }
             }
         }

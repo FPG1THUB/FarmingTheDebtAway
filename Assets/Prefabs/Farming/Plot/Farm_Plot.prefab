@@ -245,6 +245,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6453369263472594399, guid: 507429da169dd094ab8d9068881f5ffc, type: 3}
+      propertyPath: amount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6453369263472594399, guid: 507429da169dd094ab8d9068881f5ffc, type: 3}
+      propertyPath: itemID
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6453369263472594399, guid: 507429da169dd094ab8d9068881f5ffc, type: 3}
+      propertyPath: itemName
+      value: Carrot
+      objectReference: {fileID: 0}
     - target: {fileID: 7114629676940308801, guid: 507429da169dd094ab8d9068881f5ffc, type: 3}
       propertyPath: m_Name
       value: PlotSlot 1 (2)
@@ -400,6 +412,18 @@ PrefabInstance:
     - target: {fileID: 1606699503644059090, guid: 507429da169dd094ab8d9068881f5ffc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6453369263472594399, guid: 507429da169dd094ab8d9068881f5ffc, type: 3}
+      propertyPath: amount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6453369263472594399, guid: 507429da169dd094ab8d9068881f5ffc, type: 3}
+      propertyPath: itemID
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6453369263472594399, guid: 507429da169dd094ab8d9068881f5ffc, type: 3}
+      propertyPath: itemName
+      value: Carrot
       objectReference: {fileID: 0}
     - target: {fileID: 7114629676940308801, guid: 507429da169dd094ab8d9068881f5ffc, type: 3}
       propertyPath: m_Name

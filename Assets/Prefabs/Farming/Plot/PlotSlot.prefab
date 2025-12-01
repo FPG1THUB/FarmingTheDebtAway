@@ -857,9 +857,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 865ef04455455f24491b1e47658cbee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 0
-  itemName: 
-  amount: 0
+  itemID: 100
+  itemName: Carrot
+  amount: 1
   moneyValue: 0
   cropHandler: {fileID: 6873418643745055413}
 --- !u!1001 &8088156614934529097
