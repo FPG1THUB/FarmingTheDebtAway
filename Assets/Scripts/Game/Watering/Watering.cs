@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
-
+using UnityEngine.UI;
 public class Watering : MonoBehaviour
 {
     #region Variables
@@ -16,7 +16,10 @@ public class Watering : MonoBehaviour
     public Interaction interactionManager;
     //Reference to the inventory script
     public Inventory inventoryManager;
-
+    //Reference to the image for the water bar
+    public Image waterBar;
+    //reference to the text for the current water amount
+    public Text waterText;
     #endregion
     #region Functions
     //This is used to empty the water from the watering can
@@ -41,6 +44,15 @@ public class Watering : MonoBehaviour
         }
 
      }
+    //Void to update the water bar to reflect how much water the player has
+    public void UpdateUI()
+    {
+        //Sets the water bar fill amount to the current water amount divided by max water amount
+        //This is because fill amount can only be done in 0-1
+        waterBar.fillAmount = currentWaterAmount / maxWaterAmount;
+        //Sets the text to say the current water in text form
+        waterText.text = $"{(int)currentWaterAmount}% water";
+    }
     #endregion
     #region Unity Callbacks
     //Called once per frame
@@ -64,6 +76,7 @@ public class Watering : MonoBehaviour
             //Sets teh current water amount to minimum
             currentWaterAmount = minWaterAmount;
         }
+        UpdateUI();
     }
     //Called on the first frame of the game
     private void Start()
@@ -72,6 +85,10 @@ public class Watering : MonoBehaviour
         interactionManager = GameObject.FindGameObjectWithTag("InteractBox").GetComponent<Interaction>();
         //retrieves the inventory script through the game game object with tag and get component
         inventoryManager = GameObject.FindGameObjectWithTag("Manager").GetComponent <Inventory>();
+        //Retrieves the image component from the water image object in the Unity Canvas
+        waterBar = GameObject.Find("WaterImage").GetComponent<Image>();
+        //Retrieves the text component from the water text object in teh Unity canvas
+        waterText = GameObject.Find("WaterText").GetComponent<Text>();
     }
     #endregion
 }
