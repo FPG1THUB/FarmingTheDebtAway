@@ -5,7 +5,7 @@ public class ActivateShopScreen : MonoBehaviour, Interactable
     public GameObject shopScreen;
     void Start()
     {
-        shopScreen = GameObject.Find("ShopScreen"); // Finds the shopScreen panel to attach to the script
+        shopScreen = GameObject.FindGameObjectWithTag("ShopScreen");
         shopScreen.SetActive(false); // Can only find gameobjects while they are active, this will turn the screen off and hide them from players.
     }
 
