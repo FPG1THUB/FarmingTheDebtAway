@@ -3492,7 +3492,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1526564741}
         m_TargetAssemblyTypeName: SaveAndLoadStats, Assembly-CSharp
-        m_MethodName: SaveData
+        m_MethodName: CreateSaveFile
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
