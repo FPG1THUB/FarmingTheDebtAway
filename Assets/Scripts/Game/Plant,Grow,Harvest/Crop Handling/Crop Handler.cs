@@ -46,9 +46,9 @@ public class CropHandler : MonoBehaviour
         //Retrieves the plot handler script from the plot game object
         plotHandler = plot.GetComponent<PlotHandler>();
         //retrieves the time script from the manager object
-        timeManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<TimeManager>();
+        timeManager = GameObject.FindGameObjectWithTag("Time Manager").GetComponent<TimeManager>();
         //retrieves the inventory script from the inventory script
-        inventoryManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<Inventory>();
+        inventoryManager = GameObject.FindGameObjectWithTag("Inventory Manager").GetComponent<Inventory>();
         //Loops through each element available within the crops array
         for (int i = 0; i < availableCrops.Length; i++)
         {

@@ -9,6 +9,8 @@ TagManager:
   - InteractBox
   - ShopScreen
   - Plot Slot
+  - Time Manager
+  - Water Can Upgrade
   layers:
   - Default
   - TransparentFX
