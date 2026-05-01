@@ -44,9 +44,9 @@ public class PlotHandler : MonoBehaviour, Interactable
         //Retrieves the watering manager from the manager object
         wateringManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<Watering>();
         //Retrieves the inventory manager from the manager object
-        inventoryManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<Inventory>();
+        inventoryManager = GameObject.FindGameObjectWithTag("Inventory Manager").GetComponent<Inventory>();
         //retrieves the time manager from the manager object
-        timeManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<TimeManager>();
+        timeManager = GameObject.FindGameObjectWithTag("Time Manager").GetComponent<TimeManager>();
         //Grabs the crop handler script from the crop
         cropHandler = cropHandler.GetComponent<CropHandler>();
     }

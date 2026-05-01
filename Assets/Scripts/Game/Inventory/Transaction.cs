@@ -13,7 +13,7 @@ public class Transaction : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        whatPlayerHas = GameObject.FindGameObjectWithTag("Manager").GetComponent<Inventory>();
+        whatPlayerHas = GameObject.FindGameObjectWithTag("Inventory Manager").GetComponent<Inventory>();
         waterPlayerUpgrade = GameObject.FindGameObjectWithTag("Manager").GetComponent<Watering>();
     }
     // Made the Buying and Selling of items into seperate transactions due to the necessary checks and balances to avoid infinite money/item glitches.

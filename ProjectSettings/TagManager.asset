@@ -11,6 +11,7 @@ TagManager:
   - Plot Slot
   - Time Manager
   - Water Can Upgrade
+  - Plot
   layers:
   - Default
   - TransparentFX

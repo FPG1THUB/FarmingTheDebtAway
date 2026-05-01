@@ -30,7 +30,7 @@ public class Interaction : MonoBehaviour
         _player = GameObject.FindGameObjectWithTag("Player").transform;
         //this way it can automatically find the player model, if it is properly tagged.
         //Retrieves the inventory script from the manager
-        inventoryManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<Inventory>();
+        inventoryManager = GameObject.FindGameObjectWithTag("Inventory Manager").GetComponent<Inventory>();
     }
 
     // Update is called once per frame

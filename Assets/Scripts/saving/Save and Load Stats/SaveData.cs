@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -15,11 +14,11 @@ public class SaveData
     #endregion
     #region Plot and Crops
     //list of the plot states for all of the plots
-    public List<string> plotState = new List<string>(48);
+    public PlotStates[] plotState = new PlotStates[48];
     //list of all the crop states for all of the crops
-    public List<string> cropState = new List<string>(48);
+    public GrowthState[] growthStates = new GrowthState[48];
     //list of all the current crops one each plot
-    public List<string> currentCrop = new List<string>(48);
+    public Crops[] currentCrop = new Crops[48];
     #endregion
     #region Currency and Shop
     //int to store the amount of money the player has
@@ -29,7 +28,8 @@ public class SaveData
     #endregion
     #region Inventory
     //list to store all of the items in the players inventory
-    public List<Item> inventoryHotBar;
+    public int[] itemIDs = new int[8];
+    public int[] itemAmounts = new int[8];
     #endregion
     #region Time
     //ints to store the in game time

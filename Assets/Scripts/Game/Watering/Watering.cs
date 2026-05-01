@@ -84,7 +84,7 @@ public class Watering : MonoBehaviour
         //retrieves the interaction script through the find game object with tag and get component
         interactionManager = GameObject.FindGameObjectWithTag("InteractBox").GetComponent<Interaction>();
         //retrieves the inventory script through the game game object with tag and get component
-        inventoryManager = GameObject.FindGameObjectWithTag("Manager").GetComponent <Inventory>();
+        inventoryManager = GameObject.FindGameObjectWithTag("Inventory Manager").GetComponent <Inventory>();
         //Retrieves the image component from the water image object in the Unity Canvas
         waterBar = GameObject.Find("WaterImage").GetComponent<Image>();
         //Retrieves the text component from the water text object in teh Unity canvas
