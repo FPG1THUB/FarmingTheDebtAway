@@ -10,7 +10,7 @@ public class ItemHandler : MonoBehaviour, Interactable
     {
         
         int check = -1;
-        Inventory inventory = GameObject.FindGameObjectWithTag("Manager").GetComponent<Inventory>();
+        Inventory inventory = GameObject.FindGameObjectWithTag("Inventory Manager").GetComponent<Inventory>();
         if ((inventory.money + moneyValue) >= 0) // this will check to see if the resulting interaction would leave the player in the negative.
         {
             inventory.UpdateCurrency(moneyValue); // will update the GUI currency if needed
