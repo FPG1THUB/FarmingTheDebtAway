@@ -201,7 +201,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 347097}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 220760504}
+        m_TargetAssemblyTypeName: SaveAndLoadStats, Assembly-CSharp
+        m_MethodName: SetFilePath
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Save Slot 3
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1334756842}
+        m_TargetAssemblyTypeName: ChangeSceneScripts, Assembly-CSharp
+        m_MethodName: ChangeSceneByName
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Me Scene(better)
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &347097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1859,6 +1883,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 220760503}
+  - component: {fileID: 220760504}
   m_Layer: 5
   m_Name: SaveAndLoad Menu
   m_TagString: Untagged
@@ -1894,6 +1919,24 @@ RectTransform:
   m_AnchoredPosition: {x: -0.000061035, y: 0}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &220760504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220760502}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd090ab8c4bf9c46be5ed4c7cbefc50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waterScript: {fileID: 0}
+  inventoryScript: {fileID: 0}
+  transactionScript: {fileID: 0}
+  timeScript: {fileID: 0}
+  plotScripts: []
+  cropScripts: []
 --- !u!1 &225947381
 GameObject:
   m_ObjectHideFlags: 0
@@ -5688,6 +5731,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 220760504}
+        m_TargetAssemblyTypeName: SaveAndLoadStats, Assembly-CSharp
+        m_MethodName: SetFilePath
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SaveSlot1
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1334756842}
         m_TargetAssemblyTypeName: ChangeSceneScripts, Assembly-CSharp
         m_MethodName: ChangeSceneByName
@@ -13545,7 +13600,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1839766647}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 220760504}
+        m_TargetAssemblyTypeName: SaveAndLoadStats, Assembly-CSharp
+        m_MethodName: SetFilePath
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Save Slot 2
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1334756842}
+        m_TargetAssemblyTypeName: ChangeSceneScripts, Assembly-CSharp
+        m_MethodName: ChangeSceneByName
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Me Scene(better)
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1839766647
 MonoBehaviour:
   m_ObjectHideFlags: 0

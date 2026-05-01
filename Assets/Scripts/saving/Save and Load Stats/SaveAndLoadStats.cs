@@ -8,7 +8,7 @@ public class SaveAndLoadStats : MonoBehaviour
     //Creates a variable to access the save data script
     SaveData saveData = new SaveData();
     //string used to find the file path of the current save file
-    private string _filePath;
+    private static string _filePath;
     //reference to the water script to retrieve and load water capacity and speed
     public Watering waterScript;
     //Inventory script references to retrieve and laod teh current items in hotbar and current amount of moeny
@@ -42,7 +42,7 @@ public class SaveAndLoadStats : MonoBehaviour
     private void Start()
     {
         //by default, the file path will be save slot 1
-        _filePath = Application.dataPath + "/SaveSlot1";
+        Debug.Log(_filePath);
     }
     #endregion
     #region Send and Get Data
@@ -78,10 +78,11 @@ public class SaveAndLoadStats : MonoBehaviour
     /// <param name="filePath"></param>
     // the main issue is that in having the function here, it would need to exist in the main menu scene, but then it would also need to exist
     //in the game scene too, while retaining data
-    public void SetFilePath(string filePath)
+    public static void SetFilePath(string filePath)
     {
         //Sets the file path to the allocated save slot which will be stated int he inspector
         _filePath = $"{Application.dataPath}/{filePath}.json";
+        Debug.Log(_filePath);
     }
     #endregion
     #region Read and Save Data
