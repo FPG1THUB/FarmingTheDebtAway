@@ -84,6 +84,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
+
     private void Update()
     {
         SelectingHotbarSlot(); // so that the player can quickly switch hotbar slots at a time.

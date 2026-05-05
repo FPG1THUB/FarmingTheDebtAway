@@ -24,8 +24,7 @@ public class SkipTime : MonoBehaviour, Interactable
     {
         //Finds and attaches the time manager script onto the time manager variable
         timeManager = GameObject.FindGameObjectWithTag("Time Manager").GetComponent<TimeManager>();
-         plotHandlers = FindObjectsByType<PlotHandler>(FindObjectsInactive.Exclude,FindObjectsSortMode.None);
-        SkiptheTime();
+         plotHandlers = FindObjectsByType<PlotHandler>(FindObjectsInactive.Exclude,FindObjectsSortMode.None);;
     }
     //function to skip the time to 1 day ahead at 6am in the morning
     public void SkiptheTime()
@@ -47,6 +46,7 @@ public class SkipTime : MonoBehaviour, Interactable
         {
             plot.SwitchPlotStateBasedByTime();
         }
+        Debug.Log("Time Skipped!!!");
     }
     void Update()
     {
