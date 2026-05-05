@@ -12,7 +12,7 @@ public class ResetToNotPlanted : MonoBehaviour, Interactable
     public void OnInteraction()
     {
         int check = -1;
-        Inventory inventory = GameObject.FindGameObjectWithTag("Manager").GetComponent<Inventory>();
+        Inventory inventory = GameObject.FindGameObjectWithTag("Inventory Manager").GetComponent<Inventory>();
             if (cropExists != 1)
             {
             foreach (Item item in inventory.inventory)// checks each slot in the inventory for a dupe.
