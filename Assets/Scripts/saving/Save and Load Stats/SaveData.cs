@@ -28,7 +28,7 @@ public class SaveData
     #endregion
     #region Inventory
     //list to store all of the items in the players inventory
-    public int[] itemIDs = new int[8];
+    public int[] itemIDs = new int[8] {-1, -1, -1, -1, -1, -1, -1, -1};
     public int[] itemAmounts = new int[8];
     #endregion
     #region Time

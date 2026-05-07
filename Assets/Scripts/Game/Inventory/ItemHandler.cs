@@ -17,7 +17,15 @@ public class ItemHandler : MonoBehaviour, Interactable
 
             foreach (Item item in inventory.inventory)  // checks each slot in the inventory for a dupe.
             {
-                if (item.ItemId == itemID) // checks for items already added to the inventory.
+                if(item.Type == ItemType.Tool)
+                {
+                    if(item.ItemId == itemID)
+                    {
+                        check = 1;
+                        item.ItemQuantity = 1;
+                    }
+                }
+                else if (item.ItemId == itemID) // checks for items already added to the inventory.
                 {
                     check = 1;
                     //increase item

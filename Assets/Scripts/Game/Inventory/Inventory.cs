@@ -10,7 +10,7 @@ public class Inventory : MonoBehaviour
     public GameObject[] hotbarNames = new GameObject[8]; // The text element attached to the slot.
     public GameObject[] hotbarAmount = new GameObject[8]; // Text element that tells how many things there are.
     public GameObject[] hotbarBackground = new GameObject[8]; // The background image elements of the slots, used for the visual selection of a slot.
-    public List<Item> inventory = new List<Item>(); // Array that holds what the player has gathered.
+    [SerializeField]public List<Item> inventory = new List<Item>(8); // Array that holds what the player has gathered.
     public int _selectedHotbarIndex = 0; // Used for the visual selection of a slot.
     public GameObject currencyText; // The text element of the currency section.
     public int money; // A value that can be saved to a save state.

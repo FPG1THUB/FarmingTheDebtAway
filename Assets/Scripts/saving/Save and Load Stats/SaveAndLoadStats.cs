@@ -42,25 +42,21 @@ public class SaveAndLoadStats : MonoBehaviour
         //attaches the time script into this scripts
         timeScript = GameObject.FindGameObjectWithTag("Time Manager").GetComponent<TimeManager>();
         //finds all of the plot handler scripts that would be attached to all the plots, and stores them ion the plot scripts list
-        //Important thing to note, the Find objects sort mode has to be instance ID as to make sure
+
+
+        /*Important thing to note, the Find objects sort mode has to be instance ID as to make sure
         //the scripts are consistently stored in the same order so that they are saved and loaded
-        //in the correct order
+        in the correct order*/
         plotScripts.AddRange(FindObjectsByType<PlotHandler>(FindObjectsSortMode.InstanceID));
         //finds all of the crop handler scripts that would be attached to all the plots, and stores them in the crop scripts list
         cropScripts.AddRange(FindObjectsByType<CropHandler>(FindObjectsSortMode.InstanceID));
-
-    }
-
-    private void Start()
-    {
-        //by default, the file path will be save slot 1
-        Debug.Log(_filePath);
         //Checks to make sure there isnt an existing save file
         if (File.Exists(_filePath))
         {
             //if so, load it
             LoadStats();
         }
+
     }
     #endregion
     #region Set File Path Function
@@ -116,10 +112,12 @@ public class SaveAndLoadStats : MonoBehaviour
             saveData.currentCrop[i] = currentCrop;
             saveData.growthStates[i] = growthState;
         }
-        for(int i = 0; i < inventoryScript.inventory.Count; i++)
+
+        for (int i = 0; i < inventoryScript.inventory.Count; i++)
         {
             saveData.itemIDs[i] = inventoryScript.inventory[i].ItemId;
             saveData.itemAmounts[i] = inventoryScript.inventory[i].ItemQuantity;
+
         }
 
 
@@ -131,7 +129,6 @@ public class SaveAndLoadStats : MonoBehaviour
     {
         GetData();
         ConvertData(saveData, _filePath);
-        Debug.Log(saveData);
     }
     #endregion
     #region LoadData
@@ -145,7 +142,6 @@ public class SaveAndLoadStats : MonoBehaviour
         //Puts the temporary string into the saveData class
         saveData = JsonUtility.FromJson<SaveData>(dataToLoad);
         //Debug to make sure it is working on paper
-        Debug.Log(saveData);
     }
     /// <summary>
     /// Retrieves the data from the StatsData script and puts them into the other scripts
@@ -172,13 +168,14 @@ public class SaveAndLoadStats : MonoBehaviour
             cropScripts[i].currentCrop = saveData.currentCrop[i];
             cropScripts[i].growthState = saveData.growthStates[i];
         }
-        for(int i = 0; i < inventoryScript.inventory.Count; i++)
+
+        for(int i = 0; i < saveData.itemIDs.Length; i++)
         {
-            inventoryScript.inventory[i].ItemId = saveData.itemIDs[i];
+            inventoryScript.inventory.Add(ItemData.CreateItem(saveData.itemIDs[i]));
             inventoryScript.inventory[i].ItemQuantity = saveData.itemAmounts[i];
+            Debug.Log($"Item Added: ${inventoryScript.inventory[i].ItemId}");
         }
         inventoryScript.UpdateHotBarDisplay();
-        inventoryScript.UpdateCurrency(0);
     }
     /// <summary>
     /// public function to load the json file of the current save then load it into the game
