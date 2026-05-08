@@ -2170,6 +2170,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 485902668}
     m_Modifications:
+    - target: {fileID: 4410980039898942435, guid: d31799c899a15dc4e885d1e34002e816, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -4597107667637640440, guid: 914cecb5a485a7947b55b00f81e18864, type: 3}
+    - target: {fileID: 4410980039898942435, guid: d31799c899a15dc4e885d1e34002e816, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8368722655750445499, guid: 914cecb5a485a7947b55b00f81e18864, type: 3}
+    - target: {fileID: 4410980039898942435, guid: d31799c899a15dc4e885d1e34002e816, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 6034957751646507721, guid: 914cecb5a485a7947b55b00f81e18864, type: 3}
+    - target: {fileID: 4410980039898942435, guid: d31799c899a15dc4e885d1e34002e816, type: 3}
+      propertyPath: 'm_Materials.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8748892135801146194, guid: 914cecb5a485a7947b55b00f81e18864, type: 3}
+    - target: {fileID: 4410980039898942435, guid: d31799c899a15dc4e885d1e34002e816, type: 3}
+      propertyPath: 'm_Materials.Array.data[4]'
+      value: 
+      objectReference: {fileID: 5775865398287329665, guid: 914cecb5a485a7947b55b00f81e18864, type: 3}
     - target: {fileID: 5322378581307857399, guid: d31799c899a15dc4e885d1e34002e816, type: 3}
       propertyPath: m_LocalPosition.x
       value: 48.21
@@ -2210,6 +2230,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6577806576169492755, guid: d31799c899a15dc4e885d1e34002e816, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6577806576169492755, guid: d31799c899a15dc4e885d1e34002e816, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 7246283263706839967, guid: d31799c899a15dc4e885d1e34002e816, type: 3}
       propertyPath: m_Name
       value: Farm_Plot (2)
@@ -2566,6 +2594,10 @@ PrefabInstance:
       propertyPath: toolTip
       value: 
       objectReference: {fileID: 795167265}
+    - target: {fileID: 4676692065028156085, guid: 8f8b2fc813bfd0a44a70c12bfd1b1a63, type: 3}
+      propertyPath: isHandlingPlot
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7399886221584924983, guid: 8f8b2fc813bfd0a44a70c12bfd1b1a63, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 

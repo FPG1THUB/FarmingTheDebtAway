@@ -24,6 +24,9 @@ public class Interaction : MonoBehaviour
     //bool to check whether the crop handler is trying to handle crops
     public bool isHandlingCrops = false;
    public  Interactable currentObject; // Calls for the currently interacted gameobject if it exists.
+    public Color originalColor;
+    public Color selectedColor = new Color(0, 0.5f, 0);
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -144,7 +147,22 @@ public class Interaction : MonoBehaviour
     {
         if (other.TryGetComponent<Interactable>(out Interactable interactedObject)) // This will check to see if the object has a script that includes Interactable in the class section.
         {
-            currentObject = interactedObject; // Sets the currentObject to the object that has the necessary script class addition.
+
+
+            if(other.GetComponent<PlotHandler>() || other.GetComponent<CropHandler>())
+            {
+                originalColor = other.GameObject().GetComponentInChildren<MeshRenderer>().material.color;
+
+            }
+            else
+            {
+                originalColor = other.GetComponent<MeshRenderer>().material.color;
+            }
+
+
+
+
+                currentObject = interactedObject; // Sets the currentObject to the object that has the necessary script class addition.
             toolTip.text = interactedObject.ToolTip(); // If the object does not have the ToolTip function from Interactable, it will error. 
             //Checks to see if the thing it collided with has the watersource script attached to it
             if (other.GetComponent<WaterSource>() != null)
@@ -173,6 +191,23 @@ public class Interaction : MonoBehaviour
                     isHandlingCrops = true;
                 }
             }
+
+
+
+
+            if (other.GetComponent<PlotHandler>() || other.GetComponent<CropHandler>())
+            {
+                other.GameObject().GetComponentInChildren<MeshRenderer>().material.color = selectedColor;
+            }
+            else
+            {
+                other.GetComponent<MeshRenderer>().material.color = selectedColor;
+            }
+
+
+
+
+
             //toolTip.transform.position = new Vector3(currentObject.transform.position.x, currentObject.transform.position.y + 1, currentObject.transform.position.z);
             // Above is for pop up text, wishful thinking for now.
         }
@@ -187,6 +222,25 @@ public class Interaction : MonoBehaviour
             skip = false;//sets skip off
             isHandlingPlot = false;//sets isHandlingPlot off
             isHandlingCrops=false; //sets isHandlingCrops off
+
+
+
+
+            if (other.GetComponent<PlotHandler>() || other.GetComponent<CropHandler>())
+            {
+                
+                other.GameObject().GetComponentInChildren<MeshRenderer>().material.color = originalColor;
+
+            }
+            else
+            {
+                other.GetComponent<MeshRenderer>().material.color = originalColor;
+            }
+
+
+
+
+
         }
     }
     #region testing collision triggers
