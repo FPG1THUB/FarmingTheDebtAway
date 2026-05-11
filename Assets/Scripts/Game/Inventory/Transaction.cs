@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Transaction : MonoBehaviour
 {
@@ -10,11 +11,13 @@ public class Transaction : MonoBehaviour
     public int moneyValue; // Gives us the option of changing how much something is worth in currency.
     Inventory whatPlayerHas; // Will be the variable to hold the players inventory array.
     Watering waterPlayerUpgrade; // Will be used to upgrade the watering can's storage.
+    public Text priceText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         whatPlayerHas = GameObject.FindGameObjectWithTag("Inventory Manager").GetComponent<Inventory>();
         waterPlayerUpgrade = GameObject.FindGameObjectWithTag("Manager").GetComponent<Watering>();
+        UpdatePriceUI();
     }
     // Made the Buying and Selling of items into seperate transactions due to the necessary checks and balances to avoid infinite money/item glitches.
     public void SellItem()
@@ -28,6 +31,7 @@ public class Transaction : MonoBehaviour
             }
         }
         whatPlayerHas.UpdateHotBarDisplay(); // Have to update the HotBar to display the loss of the item after the foreach loop in order to avoid the error of manipulating an array during a foreach loop.
+        UpdatePriceUI();
     }
 
     public void BuyItem()
@@ -55,6 +59,7 @@ public class Transaction : MonoBehaviour
                 whatPlayerHas.inventory[temp - 1].ItemQuantity = amount; // Updates the recently added item with the correct ItemQuantity.                 
             }
             whatPlayerHas.UpdateHotBarDisplay();
+            UpdatePriceUI();
         }
     }
     public void UpgradingWateringCan()
@@ -72,7 +77,12 @@ public class Transaction : MonoBehaviour
                 }
 
             }
+            UpdatePriceUI();
         }
+    }
+    public void UpdatePriceUI()
+    {
+        priceText.text = $"${moneyValue}";
     }
 }
 
