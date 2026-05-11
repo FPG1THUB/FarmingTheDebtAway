@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Experimental.GlobalIllumination;
+using TMPro;
 
 public class TimeManager : MonoBehaviour
 {
@@ -36,12 +37,19 @@ public class TimeManager : MonoBehaviour
 
     [Space(10), Header("Debugging")]
     public int timeStep = 1;
-
+    [Space(10), Header("Weekday and month names")]
+    private string[] _weekDayNames = new string[7] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+    private string[] _monthNames = new string[12] {"January", "February", "March", "April", "May", "June","July","August","September","October","November","December" };
     [Space(10), Header("Light Manipulation")]
     public Light light;
 
     [Space(10), Header("variable for PGH")]
     public int progressByDay;
+
+    [Space(10), Header("UI Display")]
+    public Text timeDisplay;
+    public Text dateDisplay;
+
     #endregion
     #region Time Update Functions
     //Function to handle the updating time of minutes
@@ -92,6 +100,7 @@ public class TimeManager : MonoBehaviour
     {
         //adds the weeks according to how many weeks it wants to add when it gets called 
         currentWeek += weeksToAdd;
+        
         //Checks to see if the weeks have reached how many weeks are in a month, which by default is 4
         while (currentWeek > monthDuration)
         {
@@ -107,6 +116,7 @@ public class TimeManager : MonoBehaviour
         //adds the days according to how many days it wants to add when it gets called
         currentDay += daysToAdd;
         progressByDay += daysToAdd;
+       
         //Checks to see if the days have reached how many days are in a week, which by default is 7
         while (currentDay >= weekDuration)
         {
@@ -157,6 +167,31 @@ public class TimeManager : MonoBehaviour
         }
     }
     #endregion
+    #region GUI display
+    public string GetFormattedTime()
+    {
+        //This checks that if the current hour is larger or equal to 12, and if so, it is labelled PM, if not, it is labelled AM
+        string period = currentHour >= 12 ? "PM" : "AM";
+        //int variable to check whether the hour is divisible by 12
+        int displayHour = currentHour % 12;
+        //Checks to see if the display hour ended up equalling to 0
+        if(displayHour == 0)
+        {
+            //if so, set the display hour to 12
+            displayHour = 12;
+        }
+        //returns the function to display the current hour, minute and period
+        return $"{displayHour:D2} : {currentMinute:D2} {period}";
+    }
+    public string GetFormattedDate()
+    {
+        string weekDayName = _weekDayNames[currentDay];
+        string monthName = _monthNames[currentMonth];
+
+        return $"{weekDayName} Week {currentWeek + 1} \n{monthName} Year {currentYear + 1}\n Season:{currentSeason.ToString()}";
+    }
+
+    #endregion
     #region Season Changing Functions
     //Function that handles the changing of seasons based on what month it is
     public void ChangeSeasons()
@@ -193,6 +228,8 @@ public class TimeManager : MonoBehaviour
     {
         TimeUpdate();
         ChangeSeasons();
+        timeDisplay.text = GetFormattedTime();
+        dateDisplay.text = GetFormattedDate();
     }
     private void LateUpdate()
     {
