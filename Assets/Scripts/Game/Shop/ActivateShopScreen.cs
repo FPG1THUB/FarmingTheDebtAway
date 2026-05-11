@@ -1,5 +1,7 @@
 using UnityEngine;
-
+/// <summary>
+/// Class to be used for activating and deactivating the shop screen UI within the game through interaction
+/// </summary>
 public class ActivateShopScreen : MonoBehaviour, Interactable
 {
     public GameObject shopScreen;

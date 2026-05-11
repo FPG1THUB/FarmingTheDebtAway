@@ -1,5 +1,8 @@
 using UnityEngine;
-
+/// <summary>
+/// Used to handle the crops, including switching crop state, planting, growing, and harvesting them and adding them to inventory
+/// To use this, attach it to an empty game object and put the three crop stages in it as children, in the order of planted, baby, adult
+/// </summary>
 public class CropHandler : MonoBehaviour
 {
     #region Variables
@@ -14,7 +17,6 @@ public class CropHandler : MonoBehaviour
     public GameObject plot;
 
     [Space(10), Header("GameObjects and arrays")]
-
     //Array to store the potato, tomato, and carrot objects
     public GameObject[] availableCrops = new GameObject[4];
     //public GameObject array to store the different carrot states
@@ -86,7 +88,9 @@ public class CropHandler : MonoBehaviour
     }
     #endregion
     #region Switching states
-    //function to switch the current crop based on what the current crop is, and the state of the current crop
+    /// <summary>
+    /// Switches the state of the crop based on what the current crop is and the state of it
+    /// </summary>
     public void SwitchStates()
     {
         //int for the current state of the current crop
@@ -129,6 +133,7 @@ public class CropHandler : MonoBehaviour
             default:
                 //By default, the stored seed is none
                 currentSeed = 3;
+                //Sets it so there are no crops in the crop array
                 cropArray = new GameObject[0];
                 break;
         }
@@ -187,7 +192,9 @@ public class CropHandler : MonoBehaviour
     }
     #endregion
     #region Planting Crops
-    //Function that will check to see if the selected plot does not contain any crop and is dry or wet, and if not, then it will place a crop down depending on what seed the player holds
+    /// <summary>
+    /// Used to set the current crop based on the state of the plot and what seed the player is holding
+    /// </summary>
     public void PlantCrops()
     {
         //Checks to see if the plot is not set to not prepped
@@ -238,13 +245,13 @@ public class CropHandler : MonoBehaviour
                     Debug.Log($"Current Amount of Tomato Seeds:{inventoryManager.inventory[inventoryManager._selectedHotbarIndex].ItemQuantity}");
                     //Sets the current crop on the plot
                     currentCrop = Crops.tomato;
-                    //Sets teh current growth state to planted
+                    //Sets the current growth state to planted
                     growthState = GrowthState.planted;
                     //Sets the progress by day to 0, which will be used to progress the crop to different stages
                    timeManager.progressByDay = 0;
 
                 }
-                //of everything above is false, do this
+                //if everything above is false, do this
                 else
                 {
                     //Displays on the console that the player is not trying to plant anything right now when interacting with the plot
@@ -256,6 +263,7 @@ public class CropHandler : MonoBehaviour
                 //If there is a crop planted in the plot, tell the dev what the crop is and what growth state it is at
                 Debug.Log($"currently planted crop:{currentCrop}, current growth stage: {growthState}");
             }
+            //updates the hotbar display. It was put here so that i can be called on under any of the above instances
             inventoryManager.UpdateHotBarDisplay();
         }
         else
@@ -267,12 +275,15 @@ public class CropHandler : MonoBehaviour
     }
     #endregion
     #region Growing Crops
-    //Function to take the day in which the crop was planted, and how long it will take to progress to the next stage depending on what crop it is, and then will progress to the next stage if the day was reached
+    /// <summary>
+    /// Handles the growing of the crop based on the growth progress of each crop type
+    /// </summary>
     public void GrowCrops()
     {
         //Checks to see if the plot is not not prepped state and that there is a crop on it
         if(plotHandler.plotStates != PlotStates.NotPrepped && currentCrop != Crops.None)
         {
+            //Goes through each crop type and sets a growth progress, aka how many days it will take for the crop to reach the next stage
             switch (currentCrop)
             {
                 case Crops.carrot:
@@ -288,6 +299,7 @@ public class CropHandler : MonoBehaviour
                     growthProgress = new int[0];
                     break;
             }
+            //All of this is checking the growth state and day progress before moving up a state
             if (growthState == GrowthState.planted && timeManager.progressByDay == growthProgress[0])
             {
                 growthState = GrowthState.baby;
@@ -301,14 +313,18 @@ public class CropHandler : MonoBehaviour
                 growthState = GrowthState.adult;
             }
         }
+        //Checks if the plot state is not prepped
         if(plotHandler.plotStates == PlotStates.NotPrepped)
         {
+            //Sets the growth state to planted and the crop to none, and resets the growth
             growthState = GrowthState.planted;
             currentCrop = Crops.None;
             growthProgress = new int[0];
         }
     }
-    //Function to make it so that whenever the time managers progress by day goes beyone 10, it will turn to 0, and constantly updates the local version to match the 
+    /// <summary>
+    /// Displays and handles progress by day variable so that crops can be grown and then have the progress by day reset after enough time
+    /// </summary>
     public void CalculateDayProgress()
     {
         //Checks to see if the progress goes past day 10
@@ -317,7 +333,7 @@ public class CropHandler : MonoBehaviour
             //resets the day. It does this because the max growth progress is day 10, and will not be needed further on.
             timeManager.progressByDay = 0;
         }
-        //Displays the time manager progress by day on a local variable for debugging purposes
+        //Displays the time manager progress by day on a variable for debugging purposes
         progressByDay = timeManager.progressByDay;
     }
 
@@ -325,6 +341,9 @@ public class CropHandler : MonoBehaviour
 
     #endregion
     #region Harvesting Crops
+    /// <summary>
+    /// Function to switch the crop to none and growth state to planted once the player has harvested the crop
+    /// </summary>
     public void HarvestCrop()
     {
         if(growthState == GrowthState.adult)

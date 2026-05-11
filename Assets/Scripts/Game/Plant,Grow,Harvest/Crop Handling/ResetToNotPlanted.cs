@@ -1,5 +1,7 @@
 using UnityEngine;
-
+/// <summary>
+/// Interactable script to make it so that when harvesting it will reset the plot and give the player an item
+/// </summary>
 public class ResetToNotPlanted : MonoBehaviour, Interactable
 {
     public int itemID; // in the inspector for the item, put the case # for the relevent object
@@ -11,30 +13,33 @@ public class ResetToNotPlanted : MonoBehaviour, Interactable
 
     public void OnInteraction()
     {
+        //Local variable to check if the crop is already in the players inventory
         int check = -1;
+        //Fetches the inventory script from the inventory manager
         Inventory inventory = GameObject.FindGameObjectWithTag("Inventory Manager").GetComponent<Inventory>();
+            //
             if (cropExists != 1)
             {
-            foreach (Item item in inventory.inventory)// checks each slot in the inventory for a dupe.
-            {
-                if (item.ItemId == itemID) // checks for items already added to the inventory.
+                foreach (Item item in inventory.inventory)// checks each slot in the inventory for a dupe.
                 {
-                    check = 1;
-                    //increase item
-                    item.ItemQuantity += amount; // allows for adding multiples
-                    cropExists = 1;
+                    if (item.ItemId == itemID) // checks for items already added to the inventory.
+                    {
+                        check = 1;
+                        //increase item
+                        item.ItemQuantity += amount; // allows for adding multiples
+                        cropExists = 1;
+                    }
                 }
-            }
-            if (check != 1)
-            {
-                //add item
-                inventory.inventory.Add(ItemData.CreateItem(itemID)); 
+                if (check != 1)
+                {
+                    //add item
+                    inventory.inventory.Add(ItemData.CreateItem(itemID)); 
                                                                       //and set value to the amount we add 
-                int temp = inventory.inventory.Count;
-                inventory.inventory[temp - 1].ItemQuantity = amount; // 
-                cropExists = 1;
+                    int temp = inventory.inventory.Count;
+                    inventory.inventory[temp - 1].ItemQuantity = amount; // 
+                    cropExists = 1;
 
-            }
+                }
             
                 inventory.UpdateHotBarDisplay();
                 cropHandler.HarvestCrop();
