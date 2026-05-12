@@ -37,7 +37,7 @@ public class Interaction : MonoBehaviour
     //stores the original color of the object the player will be interacting with
     public Color originalColor;
     //Stores the color the interactable object will be when the player entered the collision of the object
-    public Color selectedColor = new Color(0, 0.5f, 0);
+    public Color selectedColor = new Color(0, 0.1f, 0);
 
     #endregion
     #region Unity Callbacks
@@ -99,6 +99,7 @@ public class Interaction : MonoBehaviour
                     currentObject = null;
                     //Resets the tool tip
                     toolTip.text = "";
+
                 }
 
             }
@@ -189,7 +190,7 @@ public class Interaction : MonoBehaviour
             if(other.GetComponent<PlotHandler>() || other.GetComponent<CropHandler>())
             {
                 //Sets the original colour of the children object to the current color of the objects
-                originalColor = other.GameObject().GetComponentInChildren<MeshRenderer>().material.color;
+                other.GameObject().GetComponentInChildren<MeshRenderer>(true).material.color = new Color(1, 1, 1, 1);
 
             }
             else
@@ -269,7 +270,7 @@ public class Interaction : MonoBehaviour
             if (other.GetComponent<PlotHandler>() || other.GetComponent<CropHandler>())
             {
                 //If so, set the colour of the children objects back to its original colour
-                other.GameObject().GetComponentInChildren<MeshRenderer>().material.color = originalColor;
+                other.GameObject().GetComponentInChildren<MeshRenderer>(true).material.color = new Color(1, 1, 1, 1);
 
             }
             else

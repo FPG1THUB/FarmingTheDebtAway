@@ -3733,6 +3733,22 @@ PrefabInstance:
       propertyPath: isHandlingPlot
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4676692065028156085, guid: 8f8b2fc813bfd0a44a70c12bfd1b1a63, type: 3}
+      propertyPath: selectedColor.a
+      value: 0.22745098
+      objectReference: {fileID: 0}
+    - target: {fileID: 4676692065028156085, guid: 8f8b2fc813bfd0a44a70c12bfd1b1a63, type: 3}
+      propertyPath: selectedColor.b
+      value: 0.65881985
+      objectReference: {fileID: 0}
+    - target: {fileID: 4676692065028156085, guid: 8f8b2fc813bfd0a44a70c12bfd1b1a63, type: 3}
+      propertyPath: selectedColor.g
+      value: 0.990566
+      objectReference: {fileID: 0}
+    - target: {fileID: 4676692065028156085, guid: 8f8b2fc813bfd0a44a70c12bfd1b1a63, type: 3}
+      propertyPath: selectedColor.r
+      value: 0.65881985
+      objectReference: {fileID: 0}
     - target: {fileID: 7399886221584924983, guid: 8f8b2fc813bfd0a44a70c12bfd1b1a63, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 

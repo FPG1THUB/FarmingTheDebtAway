@@ -116,6 +116,7 @@ public class TimeManager : MonoBehaviour
         //adds the days according to how many days it wants to add when it gets called
         currentDay += daysToAdd;
         progressByDay += daysToAdd;
+        GameObject.FindAnyObjectByType<PlotHandler>(FindObjectsInactive.Include).GetComponentInChildren<MeshRenderer>(true).material.color = new Color(1, 1, 1, 1);
        
         //Checks to see if the days have reached how many days are in a week, which by default is 7
         while (currentDay >= weekDuration)
