@@ -359,7 +359,9 @@ public class CropHandler : MonoBehaviour
 }
 #region enums
 
-//an enum to store the different states of the crop
+/// <summary>
+/// Enum to store the growth state of teh crops
+/// </summary>
 public enum GrowthState
 {
     planted,
@@ -367,7 +369,9 @@ public enum GrowthState
     teen,
     adult
 }
-//an enum to store the different crops
+/// <summary>
+/// Enum to store the currently planted Crop
+/// </summary>
 public enum Crops
 {
     None,

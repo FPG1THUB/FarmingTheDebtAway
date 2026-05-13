@@ -1,15 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.Experimental.GlobalIllumination;
-using TMPro;
+
 
 public class TimeManager : MonoBehaviour
 {
     #region Variables
     [Space(10), Header("Current Time Values")]
-    public float timeElapsed; //float to measure time
+    public float timeElapsed; //float to measure time passed in Time.deltatime
     public int currentMinute;//int to measure what the current minute is
     public int currentHour;//int to measure what the current hour is
     public int currentDay;//int to measure what the current day is
@@ -18,8 +15,10 @@ public class TimeManager : MonoBehaviour
     public int currentYear;//int to measure what the current year is
     [Space(10), Header("Seasons")]
     public Season currentSeason;
-
-    public enum Season//enum to store the different seasons in the year
+    /// <summary>
+    /// Enum to store the current season, for when we want to add seasonal changes to conditions and environments
+    /// </summary>
+    public enum Season
     {
         Summer,
         Autumn,
@@ -36,23 +35,26 @@ public class TimeManager : MonoBehaviour
     public int yearDuration = 12;//int to store how many months are in a year
 
     [Space(10), Header("Debugging")]
-    public int timeStep = 1;
+    public int timeStep = 1;//simple debug to speed up time passing
     [Space(10), Header("Weekday and month names")]
-    private string[] _weekDayNames = new string[7] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
-    private string[] _monthNames = new string[12] {"January", "February", "March", "April", "May", "June","July","August","September","October","November","December" };
+    private string[] _weekDayNames = new string[7] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };//array to store the day of the week 
+    private string[] _monthNames = new string[12] {"January", "February", "March", "April", "May", "June","July","August","September","October","November","December" };//array to store the current month of the year
+
     [Space(10), Header("Light Manipulation")]
-    public Light light;
+    public Light light;//stores the light to change the lighting between day and night
 
     [Space(10), Header("variable for PGH")]
-    public int progressByDay;
+    public int progressByDay;//variable that tracks the progress until a crop can advance to the next stage
 
     [Space(10), Header("UI Display")]
-    public Text timeDisplay;
-    public Text dateDisplay;
+    public Text timeDisplay;//text to display the time in an hour:minute AM/PM format
+    public Text dateDisplay;//text to display the current week day, month, year, and season
 
     #endregion
     #region Time Update Functions
-    //Function to handle the updating time of minutes
+     /// <summary>
+     /// Use this to initialise the time passage, put it in update and It will begin the time elapse, which will then trigger the rest of time update functions
+     /// </summary>
     public void TimeUpdate()
     {
         //Makes it so that the timeElapsed increases per time instead of per frame once the function is called in Update
@@ -66,7 +68,10 @@ public class TimeManager : MonoBehaviour
             AddMinutes(1);
         }
     }
-    //Function to add the minutes and hours
+    /// <summary>
+    /// Converts time elapsed to minutes when time elapsed reaches minute duration(by default it is 1)
+    /// </summary>
+    /// <param name="minutesToAdd"></param>
     public void AddMinutes(int minutesToAdd)
     {
         //Adds the minutes according to whatever number is in the function when it is called somewhere else
@@ -81,7 +86,10 @@ public class TimeManager : MonoBehaviour
         }
 
     }
-    //Function to add hours and days
+    /// <summary>
+    /// Converts minutes to hours when the current minute has reached hour duration(by default is 60)
+    /// </summary>
+    /// <param name="hoursToAdd"></param>
     public void AddHours(int hoursToAdd)
     {
         //Adds the hours according to whatever number is in the function when it is called
@@ -95,7 +103,10 @@ public class TimeManager : MonoBehaviour
             AddDays(1);
         }
     }
-    //Function to add the weeks and months
+    /// <summary>
+    /// Converts days into weeks when the current day has reached week duration(by default is 7)
+    /// </summary>
+    /// <param name="weeksToAdd"></param>
     public void AddWeeks(int weeksToAdd)
     {
         //adds the weeks according to how many weeks it wants to add when it gets called 
@@ -110,13 +121,16 @@ public class TimeManager : MonoBehaviour
             AddMonths(1);
         }
     }
-    //function to add the days and weeks
+    /// <summary>
+    /// Converts hours into day when current hour reaches day duration(by default is 24)
+    /// </summary>
+    /// <param name="daysToAdd"></param>
     public void AddDays(int daysToAdd)
     {
         //adds the days according to how many days it wants to add when it gets called
         currentDay += daysToAdd;
         progressByDay += daysToAdd;
-        GameObject.FindAnyObjectByType<PlotHandler>(FindObjectsInactive.Include).GetComponentInChildren<MeshRenderer>(true).material.color = new Color(1, 1, 1, 1);
+        
        
         //Checks to see if the days have reached how many days are in a week, which by default is 7
         while (currentDay >= weekDuration)
@@ -127,7 +141,10 @@ public class TimeManager : MonoBehaviour
             AddWeeks(1);
         }
     }
-    //function to add the months and years
+    /// <summary>
+    /// Converts weeks to months when the current week reaches month duration(by default is 4)
+    /// </summary>
+    /// <param name="monthsToAdd"></param>
     public void AddMonths(int monthsToAdd)
     {
         //adds the months according to how many months it wants to add when it gets called
@@ -141,7 +158,10 @@ public class TimeManager : MonoBehaviour
             AddYears(1);
         }
     }
-    //function to add the years
+    /// <summary>
+    /// Converts months into years when the current month reaches year duration(by default is 12)
+    /// </summary>
+    /// <param name="yearsToAdd"></param>
     public void AddYears(int yearsToAdd)
     {
         //adds the years according to how many years it wants to add when it gets called
@@ -150,6 +170,9 @@ public class TimeManager : MonoBehaviour
     }
     #endregion
     #region RotateLight
+    /// <summary>
+    /// Rotates the light according to the time passed
+    /// </summary>
     public void RotateLight()
     {
         //Checks to see if the light is attached to anything
@@ -169,6 +192,10 @@ public class TimeManager : MonoBehaviour
     }
     #endregion
     #region GUI display
+    /// <summary>
+    /// Formats the time into an hour:minute AM/PM format
+    /// </summary>
+    /// <returns></returns>
     public string GetFormattedTime()
     {
         //This checks that if the current hour is larger or equal to 12, and if so, it is labelled PM, if not, it is labelled AM
@@ -184,17 +211,25 @@ public class TimeManager : MonoBehaviour
         //returns the function to display the current hour, minute and period
         return $"{displayHour:D2} : {currentMinute:D2} {period}";
     }
+    /// <summary>
+    /// formats the date into week day, week, month name, year, season
+    /// </summary>
+    /// <returns></returns>
     public string GetFormattedDate()
     {
+        //Sets the week day name to the current day, aka if the current day is set to 1, itll be monday
         string weekDayName = _weekDayNames[currentDay];
+        //sets the month name to the current month, aka if the current month is 9, itll be september
         string monthName = _monthNames[currentMonth];
-
+        //returns the function into a formatted date
         return $"{weekDayName} Week {currentWeek + 1} \n{monthName} Year {currentYear + 1}\n Season:{currentSeason.ToString()}";
     }
 
     #endregion
     #region Season Changing Functions
-    //Function that handles the changing of seasons based on what month it is
+    /// <summary>
+    /// Changes th season based on the current month
+    /// </summary>
     public void ChangeSeasons()
     {
         //Checks to see if the month is the first, otherwise known as January
@@ -229,16 +264,14 @@ public class TimeManager : MonoBehaviour
     {
         TimeUpdate();
         ChangeSeasons();
+        //Sets the time display to the formatted time
         timeDisplay.text = GetFormattedTime();
+        //sets the date display to the formatted date
         dateDisplay.text = GetFormattedDate();
     }
     private void LateUpdate()
     {
         RotateLight();
-    }
-    private void Start()
-    {
-
     }
     #endregion
 }

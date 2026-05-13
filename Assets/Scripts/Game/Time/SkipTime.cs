@@ -1,5 +1,7 @@
 using UnityEngine;
-
+/// <summary>
+/// Use this to skip the time, attach it to anything that can be used to skip time
+/// </summary>
 public class SkipTime : MonoBehaviour, Interactable
 {
     //Reference to the time manager script
@@ -29,22 +31,31 @@ public class SkipTime : MonoBehaviour, Interactable
     //function to skip the time to 1 day ahead at 6am in the morning
     public void SkiptheTime()
     {
-        //Sets the current hour to 6
-        timeManager.currentHour = 6;
-        //Sets the current minute to 0
-        timeManager.currentMinute = 0;
-        //Trigger plot code here...Figure that out later...
-        /*
-            issue 
-            need to shout at all plots in scene to run code...
-            actually not issue think i have an idea...remind me of idea later
-         
-         */
+        //Checks if the current hour is 6 or mroe
+        if (timeManager.currentHour >= 6)
+        {
+            //Sets the current hour to 6
+            timeManager.currentHour = 6;
+            //Sets the current minute to 0
+            timeManager.currentMinute = 0;
+            //Sets the day to one ahead
+            timeManager.AddDays(1);
+        }
+        else
+        {
+            //Sets the current hour to 6
+            timeManager.currentHour = 6;
+            //Sets the current minute to 0
+            timeManager.currentMinute = 0;
+        }
+            
+        
         foreach (PlotHandler plot in plotHandlers)
         {
             plot.SwitchPlotStateBasedByTime();
         }
         Debug.Log("Time Skipped!!!");
+
     }
     void Update()
     {
@@ -58,5 +69,7 @@ public class SkipTime : MonoBehaviour, Interactable
             //un pause time
             //fade to transparent ...back to game
         }
+        //Otherwise, check if teh time
+
     }
 }

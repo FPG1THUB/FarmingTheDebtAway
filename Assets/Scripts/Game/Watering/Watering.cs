@@ -1,6 +1,8 @@
 using UnityEngine;
-using System.Collections.Generic;
 using UnityEngine.UI;
+/// <summary>
+/// Handles the watering, including emptying the water and updating the water bar UI
+/// </summary>
 public class Watering : MonoBehaviour
 {
     #region Variables
@@ -22,10 +24,12 @@ public class Watering : MonoBehaviour
     public Text waterText;
     #endregion
     #region Functions
-    //This is used to empty the water from the watering can
+    /// <summary>
+    /// Empties the water from the watering can 
+    /// </summary>
      public void EmptyWater()
      {
-        //Checks to see if the player is currently trying to skip the time
+        //Checks to see if the player is currently trying to skip the time based on time and the water speed variable
         if (!interactionManager.skip)
         {
 
@@ -44,7 +48,9 @@ public class Watering : MonoBehaviour
         }
 
      }
-    //Void to update the water bar to reflect how much water the player has
+    /// <summary>
+    /// Updates the waterbar UI and text to display how much water the player has
+    /// </summary>
     public void UpdateUI()
     {
         //Sets the water bar fill amount to the current water amount divided by max water amount
@@ -58,6 +64,7 @@ public class Watering : MonoBehaviour
     //Called once per frame
     public void Update()
     {
+        //Checks to see if the player is holding the watering can
         if (inventoryManager.inventory[inventoryManager._selectedHotbarIndex].ItemName == "Watering Can")
         {
             //Calls onb the Empty Water function

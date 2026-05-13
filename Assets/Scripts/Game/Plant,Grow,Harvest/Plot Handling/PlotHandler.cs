@@ -1,7 +1,9 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.Rendering;
-
+/// <summary>
+/// Use this class when wanting to directly manipulate a plots state or component.
+/// </summary>
 public class PlotHandler : MonoBehaviour, Interactable
 {
     #region Variables
