@@ -190,7 +190,7 @@ public class Interaction : MonoBehaviour
             if(other.GetComponent<PlotHandler>() || other.GetComponent<CropHandler>())
             {
                 //Sets the original colour of the children object to the current color of the objects
-                other.GameObject().GetComponentInChildren<MeshRenderer>(true).material.color = new Color(1, 1, 1, 1);
+                originalColor = other.GameObject().GetComponentInChildren<MeshRenderer>(true).material.color;
 
             }
             else
@@ -270,7 +270,11 @@ public class Interaction : MonoBehaviour
             if (other.GetComponent<PlotHandler>() || other.GetComponent<CropHandler>())
             {
                 //If so, set the colour of the children objects back to its original colour
-                other.GameObject().GetComponentInChildren<MeshRenderer>(true).material.color = new Color(1, 1, 1, 1);
+                //other.GameObject().GetComponentInChildren<MeshRenderer>(true).material.color = new Color(1, 1, 1, 1);
+                for(int i = 0; i < 3; i++)
+                {
+                    other.transform.GetChild(i).GetComponent<MeshRenderer>().material.color = originalColor;
+                }
 
             }
             else
