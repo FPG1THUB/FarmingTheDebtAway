@@ -1,10 +1,12 @@
 using UnityEngine;
-
+/// <summary>
+/// Use this to skip the time, attach it to anything that can be used to skip time
+/// </summary>
 public class SkipTime : MonoBehaviour, Interactable
 {
     //Reference to the time manager script
     public TimeManager timeManager;
-    PlotHandler[] plotHandlers;
+    [SerializeField]PlotHandler[] plotHandlers;
     //is called on once the player has come into contact and attempted to interact with an object that is interactable
     public void OnInteraction()
     {
@@ -23,30 +25,37 @@ public class SkipTime : MonoBehaviour, Interactable
     private void Start()
     {
         //Finds and attaches the time manager script onto the time manager variable
-        timeManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<TimeManager>();
-        plotHandlers = FindObjectsByType<PlotHandler>(FindObjectsInactive.Exclude,FindObjectsSortMode.None);
-        SkiptheTime();
+        timeManager = GameObject.FindGameObjectWithTag("Time Manager").GetComponent<TimeManager>();
+         plotHandlers = FindObjectsByType<PlotHandler>(FindObjectsInactive.Exclude,FindObjectsSortMode.None);;
     }
     //function to skip the time to 1 day ahead at 6am in the morning
     public void SkiptheTime()
     {
-        //adds 1 day to the current time, and if it ends up being 8 days or more, then it will add to a week
-        timeManager.AddDays(1);
-        //Sets the current hour to 6
-        timeManager.currentHour = 6;
-        //Sets the current minute to 0
-        timeManager.currentMinute = 0;
-        //Trigger plot code here...Figure that out later...
-        /*
-            issue 
-            need to shout at all plots in scene to run code...
-            actually not issue think i have an idea...remind me of idea later
-         
-         */
+        //Checks if the current hour is 6 or mroe
+        if (timeManager.currentHour >= 6)
+        {
+            //Sets the current hour to 6
+            timeManager.currentHour = 6;
+            //Sets the current minute to 0
+            timeManager.currentMinute = 0;
+            //Sets the day to one ahead
+            timeManager.AddDays(1);
+        }
+        else
+        {
+            //Sets the current hour to 6
+            timeManager.currentHour = 6;
+            //Sets the current minute to 0
+            timeManager.currentMinute = 0;
+        }
+            
+        
         foreach (PlotHandler plot in plotHandlers)
         {
             plot.SwitchPlotStateBasedByTime();
         }
+        Debug.Log("Time Skipped!!!");
+
     }
     void Update()
     {
@@ -60,5 +69,7 @@ public class SkipTime : MonoBehaviour, Interactable
             //un pause time
             //fade to transparent ...back to game
         }
+        //Otherwise, check if teh time
+
     }
 }

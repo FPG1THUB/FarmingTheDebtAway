@@ -10,14 +10,22 @@ public class ItemHandler : MonoBehaviour, Interactable
     {
         
         int check = -1;
-        Inventory inventory = GameObject.FindGameObjectWithTag("Manager").GetComponent<Inventory>();
+        Inventory inventory = GameObject.FindGameObjectWithTag("Inventory Manager").GetComponent<Inventory>();
         if ((inventory.money + moneyValue) >= 0) // this will check to see if the resulting interaction would leave the player in the negative.
         {
             inventory.UpdateCurrency(moneyValue); // will update the GUI currency if needed
 
             foreach (Item item in inventory.inventory)  // checks each slot in the inventory for a dupe.
             {
-                if (item.ItemId == itemID) // checks for items already added to the inventory.
+                if(item.Type == ItemType.Tool)
+                {
+                    if(item.ItemId == itemID)
+                    {
+                        check = 1;
+                        item.ItemQuantity = 1;
+                    }
+                }
+                else if (item.ItemId == itemID) // checks for items already added to the inventory.
                 {
                     check = 1;
                     //increase item

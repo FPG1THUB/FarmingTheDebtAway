@@ -1,6 +1,8 @@
 using UnityEngine;
-using System.Collections.Generic;
-
+using UnityEngine.UI;
+/// <summary>
+/// Handles the watering, including emptying the water and updating the water bar UI
+/// </summary>
 public class Watering : MonoBehaviour
 {
     #region Variables
@@ -16,13 +18,18 @@ public class Watering : MonoBehaviour
     public Interaction interactionManager;
     //Reference to the inventory script
     public Inventory inventoryManager;
-
+    //Reference to the image for the water bar
+    public Image waterBar;
+    //reference to the text for the current water amount
+    public Text waterText;
     #endregion
     #region Functions
-    //This is used to empty the water from the watering can
+    /// <summary>
+    /// Empties the water from the watering can 
+    /// </summary>
      public void EmptyWater()
      {
-        //Checks to see if the player is currently trying to skip the time
+        //Checks to see if the player is currently trying to skip the time based on time and the water speed variable
         if (!interactionManager.skip)
         {
 
@@ -41,11 +48,23 @@ public class Watering : MonoBehaviour
         }
 
      }
+    /// <summary>
+    /// Updates the waterbar UI and text to display how much water the player has
+    /// </summary>
+    public void UpdateUI()
+    {
+        //Sets the water bar fill amount to the current water amount divided by max water amount
+        //This is because fill amount can only be done in 0-1
+        waterBar.fillAmount = currentWaterAmount / maxWaterAmount;
+        //Sets the text to say the current water in text form
+        waterText.text = $"{(int)currentWaterAmount}% water";
+    }
     #endregion
     #region Unity Callbacks
     //Called once per frame
     public void Update()
     {
+        //Checks to see if the player is holding the watering can
         if (inventoryManager.inventory[inventoryManager._selectedHotbarIndex].ItemName == "Watering Can")
         {
             //Calls onb the Empty Water function
@@ -64,6 +83,7 @@ public class Watering : MonoBehaviour
             //Sets teh current water amount to minimum
             currentWaterAmount = minWaterAmount;
         }
+        UpdateUI();
     }
     //Called on the first frame of the game
     private void Start()
@@ -71,7 +91,11 @@ public class Watering : MonoBehaviour
         //retrieves the interaction script through the find game object with tag and get component
         interactionManager = GameObject.FindGameObjectWithTag("InteractBox").GetComponent<Interaction>();
         //retrieves the inventory script through the game game object with tag and get component
-        inventoryManager = GameObject.FindGameObjectWithTag("Manager").GetComponent <Inventory>();
+        inventoryManager = GameObject.FindGameObjectWithTag("Inventory Manager").GetComponent <Inventory>();
+        //Retrieves the image component from the water image object in the Unity Canvas
+        waterBar = GameObject.Find("WaterImage").GetComponent<Image>();
+        //Retrieves the text component from the water text object in teh Unity canvas
+        waterText = GameObject.Find("WaterText").GetComponent<Text>();
     }
     #endregion
 }

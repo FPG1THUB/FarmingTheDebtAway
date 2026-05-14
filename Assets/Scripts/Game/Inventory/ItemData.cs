@@ -17,7 +17,16 @@ public static class ItemData
         // Assign values based on ItemID
         switch (itemID)
         {
-            
+            case -1:
+                _itemName = "";
+                _itemDescription = "";
+                _itemValue = 5;
+                _itemIcon = "Icons/Empty_Icon";
+                _itemMesh = "Meshes/GameObject";
+                _itemType = ItemType.None;
+                _itemQuantity = 0;
+                break;
+
             #region Seeds
             case 0:
                 _itemName = "Carrot Seed";

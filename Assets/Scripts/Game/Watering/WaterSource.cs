@@ -1,5 +1,7 @@
 using UnityEngine;
-
+/// <summary>
+/// Used to refill the watering can. Attach this to an object that you want to use to refill water with
+/// </summary>
 public class WaterSource : MonoBehaviour,Interactable
 {
     //reference to the watering script
@@ -16,7 +18,6 @@ public class WaterSource : MonoBehaviour,Interactable
 
             //increases water by time and water speed
             wateringManager.currentWaterAmount += Time.deltaTime * wateringManager.waterSpeed;
-            Debug.Log("Refilling");
     }
 
     public string ToolTip()

@@ -64,5 +64,6 @@ public enum ItemType // Can add more types as necessary.
 {
     Seed,
     Crop,
-    Tool 
+    Tool,
+    None
 }
