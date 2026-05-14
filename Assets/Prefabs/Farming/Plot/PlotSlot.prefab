@@ -108,7 +108,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -493,7 +493,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -514,7 +514,6 @@ MonoBehaviour:
   itemID: 101
   itemName: Potato
   amount: 1
-  moneyValue: 0
   cropHandler: {fileID: 6873418643745055413}
 --- !u!1001 &3623792864642091276
 PrefabInstance:
@@ -701,7 +700,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -722,7 +721,6 @@ MonoBehaviour:
   itemID: 100
   itemName: Carrot
   amount: 1
-  moneyValue: 0
   cropHandler: {fileID: 6873418643745055413}
 --- !u!1001 &7881546387783643653
 PrefabInstance:
@@ -846,6 +844,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8449600624696314108, guid: df8095eccfe186549b7cfd4547dfba2e, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8734635285563612682, guid: df8095eccfe186549b7cfd4547dfba2e, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.791204
@@ -955,5 +957,4 @@ MonoBehaviour:
   itemID: 102
   itemName: Tomato
   amount: 1
-  moneyValue: 0
   cropHandler: {fileID: 6873418643745055413}

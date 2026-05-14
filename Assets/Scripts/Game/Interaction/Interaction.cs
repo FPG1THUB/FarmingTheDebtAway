@@ -33,11 +33,11 @@ public class Interaction : MonoBehaviour
     //bool to check whether the crop handler is trying to handle crops
     public bool isHandlingCrops = false;
     //stores the object interactable script the player is trying to interact with
-    [SerializeField]public  Interactable currentObject; 
+    [SerializeField]public  Interactable currentObject;
     //stores the original color of the object the player will be interacting with
-    public Color originalColor;
+    public Color originalColor = new Color(204, 204, 204);
     //Stores the color the interactable object will be when the player entered the collision of the object
-    public Color selectedColor = new Color(0, 0.1f, 0);
+    public Color selectedColor;
 
     #endregion
     #region Unity Callbacks
@@ -184,20 +184,19 @@ public class Interaction : MonoBehaviour
         //Checks to see if the object has the interactable interface
         if (other.TryGetComponent<Interactable>(out Interactable interactedObject)) // This will check to see if the object has a script that includes Interactable in the class section.
         {
+            ////Checks to see if the interactable object contains either the crop handler or the plot handler scripts
+            ////It does this because both of those have the object mesh within the children instead of teh direct object
+            //if(other.GetComponent<PlotHandler>() || other.GetComponent<CropHandler>())
+            //{
+            //    //Sets the original colour of the children object to the current color of the objects
+            //    originalColor = other.GameObject().GetComponentInChildren<MeshRenderer>(true).material.color;
 
-            //Checks to see if the interactable object contains either the crop handler or the plot handler scripts
-            //It does this because both of those have the object mesh within the children instead of teh direct object
-            if(other.GetComponent<PlotHandler>() || other.GetComponent<CropHandler>())
-            {
-                //Sets the original colour of the children object to the current color of the objects
-                originalColor = other.GameObject().GetComponentInChildren<MeshRenderer>(true).material.color;
-
-            }
-            else
-            {
-                //If it doesnt contain a plot or crop handler script, it will simply grab the color directly from the object
-                originalColor = other.GetComponent<MeshRenderer>().material.color;
-            }
+            //}
+            //else
+            //{
+            //    //If it doesnt contain a plot or crop handler script, it will simply grab the color directly from the object
+            //    originalColor = other.GetComponent<MeshRenderer>().material.color;
+            //}
 
 
 
