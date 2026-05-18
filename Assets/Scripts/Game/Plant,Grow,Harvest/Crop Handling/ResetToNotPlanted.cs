@@ -8,9 +8,11 @@ public class ResetToNotPlanted : MonoBehaviour, Interactable
     public string itemName; // stores the item name of the crop we are harvesting
     public int amount; // stores the amount in which the crop will give us(aka if its set to 1 when we harvest we will get 1 crop)
     public CropHandler cropHandler;//Stores the crop Handler so that we can call on its functions
+    private Animator animator;
 
     public void OnInteraction()
     {
+        animator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
         //Local variable to check if the crop is already in the players inventory
         int check = -1;
         //Fetches the inventory script from the inventory manager
@@ -35,6 +37,8 @@ public class ResetToNotPlanted : MonoBehaviour, Interactable
                 inventory.UpdateHotBarDisplay();
                 //Sets the crop to none, therefore setting it back to 
                 cropHandler.HarvestCrop();
+        animator.SetTrigger("Picking Up");
+        
     }
 
     public string ToolTip()

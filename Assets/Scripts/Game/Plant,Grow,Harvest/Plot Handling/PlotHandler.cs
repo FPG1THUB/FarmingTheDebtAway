@@ -29,7 +29,7 @@ public class PlotHandler : MonoBehaviour, Interactable
     public int waterProgress;
     //Sets the time it should take to water
     public int timeTakesToWaterPlot = 3;
-
+    private Animator animator;
     #endregion
     #region Unity Callbacks
     //Called on the first frame
@@ -41,6 +41,7 @@ public class PlotHandler : MonoBehaviour, Interactable
             //retrieves the plot prefabs
             plotPrefabs[i] = this.transform.GetChild(i).gameObject;
         }
+        animator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
         //Switches the state of the plot
         SwitchStates();
         //Retrieves the watering manager from the manager object
@@ -110,6 +111,7 @@ public class PlotHandler : MonoBehaviour, Interactable
             {
                 //if so, sets the plot state to dry
                 plotStates = PlotStates.Dry;
+                animator.SetTrigger("Tilling");
                 //Changes the state of the plot to dry in the scene
                 SwitchStates();
             }

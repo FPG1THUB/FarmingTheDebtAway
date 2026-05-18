@@ -13,18 +13,21 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float _movementSpeed, /*_walk = 5, _run = 10, _crouch = 2.5f,*/ _gravity = 20;//, _jump = 8;
 
     // Stores horizontal and Vertiacl player inputs, (x) (y) inputs
-    Vector2 newInput;
-
+    public Vector2 newInput;
+    public Animator animator;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         // Gets the character controller component attached to the same GameObject and Stores it in _character controller 
         _characterController = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
 
     }
     private void Update()
     {
         Move(); // This way it keeps repeating if someone holds a key down.
+        
     }
     void Move()
     {
@@ -38,22 +41,28 @@ public class PlayerMovement : MonoBehaviour
                 if (Input.GetKey(KeybindManager.keys["Left"]))
               //if(Input.GetKey(KeyCode.A))
                 {
+                    
                     // Set the horizontal input to -1 (move left)
-                    newInput.x = -1;
+                    newInput.x = 1;
+                    animator.SetBool("Walking", true);
+
                 }
                 // Check if the player is pressing the Right movement key
                 else if (Input.GetKey(KeybindManager.keys["Right"]))
                 //else if (Input.GetKey(KeyCode.D))
 
                 {
+                    
                     // Set the horizontal input to 1 (move right)
-                    newInput.x = 1;
+                    newInput.x = -1;
+                    animator.SetBool("Walking", true);
                 }
                 // No left or right key is pressed 
                 else
                 {
                     // Stop horizontal movement
                     newInput.x = 0;
+                    animator.SetBool("Walking", false);
                 }
 
                 // Check if the player is pressing the Backward movement key
@@ -61,20 +70,23 @@ public class PlayerMovement : MonoBehaviour
                 //if (Input.GetKey(KeyCode.S))
                 {
                     // Set the vertical input to -1 (move backward)
-                    newInput.y = -1;
+                    newInput.y = 1;
+                    animator.SetBool("Walking", true);
                 }
                 // Check if the player is pressing the Forward movement key
                 else if (Input.GetKey(KeybindManager.keys["Forward"]))
                 //else if (Input.GetKey(KeyCode.W))
                 {
                     // Set the vertical input to 1 (move forward)
-                    newInput.y = 1;
+                    newInput.y = -1;
+                    animator.SetBool("Walking", true);
                 }
                 // No forward or backward key is pressed
                 else
                 {
                     // Stop vertical movement
                     newInput.y = 0;
+                    animator.SetBool("Walking", false);
                 }
 
                 // Apply movement direction based on the horizontal and vertical input
@@ -96,6 +108,7 @@ public class PlayerMovement : MonoBehaviour
             _moveDirection.y -= _gravity * Time.deltaTime;
             // Move the character based on the movement direction (scaled by deltaTime for frame-independent movement)
             _characterController.Move(_moveDirection * Time.deltaTime);
+            
         }
     }
 }

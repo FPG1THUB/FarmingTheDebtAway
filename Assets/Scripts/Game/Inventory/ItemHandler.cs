@@ -6,9 +6,10 @@ public class ItemHandler : MonoBehaviour, Interactable
     public string itemName; // 
     public int amount; // In the inspector, let's us decide how much of the thing will be added to the inventory at a time.
     public int moneyValue;
+    private Animator animator;
     public void OnInteraction()
     {
-        
+        animator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
         int check = -1;
         Inventory inventory = GameObject.FindGameObjectWithTag("Inventory Manager").GetComponent<Inventory>();
         if ((inventory.money + moneyValue) >= 0) // this will check to see if the resulting interaction would leave the player in the negative.
@@ -44,7 +45,7 @@ public class ItemHandler : MonoBehaviour, Interactable
 
             inventory.UpdateHotBarDisplay();
             Destroy(gameObject);
-            
+            animator.SetTrigger("Picking Up");
         }
     }
 

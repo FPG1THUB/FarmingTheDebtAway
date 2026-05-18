@@ -22,6 +22,7 @@ public class Watering : MonoBehaviour
     public Image waterBar;
     //reference to the text for the current water amount
     public Text waterText;
+    private Animator animator;
     #endregion
     #region Functions
     /// <summary>
@@ -41,9 +42,15 @@ public class Watering : MonoBehaviour
                     {
                         //Decreases the amount of water held based off of time and the speed of the water
                         currentWaterAmount -= Time.deltaTime * waterSpeed;
+                        animator.SetBool("Watering", true);
                     }
+                 
                 }
-            
+                else
+                {
+                    animator.SetBool("Watering", false);
+                }
+
 
         }
 
@@ -96,6 +103,7 @@ public class Watering : MonoBehaviour
         waterBar = GameObject.Find("WaterImage").GetComponent<Image>();
         //Retrieves the text component from the water text object in teh Unity canvas
         waterText = GameObject.Find("WaterText").GetComponent<Text>();
+        animator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
     }
     #endregion
 }

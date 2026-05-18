@@ -37,6 +37,7 @@ public class CropHandler : MonoBehaviour
     public GrowthState growthState;
     //enum to store the currentStoredCrop
     public Crops currentCrop;
+    private Animator animator;
 
 
     #endregion
@@ -51,6 +52,7 @@ public class CropHandler : MonoBehaviour
         timeManager = GameObject.FindGameObjectWithTag("Time Manager").GetComponent<TimeManager>();
         //retrieves the inventory script from the inventory script
         inventoryManager = GameObject.FindGameObjectWithTag("Inventory Manager").GetComponent<Inventory>();
+        animator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
         //Loops through each element available within the crops array
         for (int i = 0; i < availableCrops.Length; i++)
         {
@@ -217,6 +219,7 @@ public class CropHandler : MonoBehaviour
                     currentCrop = Crops.carrot;
                     //sets the state of the crop to planted
                     growthState = GrowthState.planted;
+                    animator.SetTrigger("Planting");
 
                 }
                 //if the above is false, checks to see if the player is trying to plan a potato seed and if the player has enough seeds to plant it
@@ -233,7 +236,7 @@ public class CropHandler : MonoBehaviour
                     growthState = GrowthState.planted;
                     //Sets the progress by day to 0, which will be used to progress the crop to different stages
                     timeManager.progressByDay = 0;
-
+                    animator.SetTrigger("Planting");
                 }
                 //If the above is false, checks to see if the player has tomato seeds selected and has enough to plant them
                 else if (inventoryManager.inventory[inventoryManager._selectedHotbarIndex].ItemName == "Tomato Seed" 
@@ -249,7 +252,7 @@ public class CropHandler : MonoBehaviour
                     growthState = GrowthState.planted;
                     //Sets the progress by day to 0, which will be used to progress the crop to different stages
                    timeManager.progressByDay = 0;
-
+                    animator.SetTrigger("Planting");
                 }
                 //if everything above is false, do this
                 else
