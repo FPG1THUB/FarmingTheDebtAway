@@ -1,6 +1,7 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Audio;
+using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class AutioManager : MonoBehaviour
 {
@@ -30,7 +31,7 @@ public class AutioManager : MonoBehaviour
         {
             _slider[i].value = VolumeControl[i];
             audioMixer.SetFloat(_channelName[i], VolumeControl[i]);
-            _percentText[i].text = $"{Mathf.Clamp01((VolumeControl[i] + 80) / 100):P0}";
+            _percentText[i].text = $"{Mathf.Clamp01(((_slider[i].value + 30) * 3.33f) / 100):P0}";
         }
     }
 
@@ -38,7 +39,7 @@ public class AutioManager : MonoBehaviour
     {
         VolumeControl[volumeID] = _slider[volumeID].value;
         audioMixer.SetFloat(_channelName[volumeID], VolumeControl[volumeID]);
-        _percentText[volumeID].text = $"{Mathf.Clamp01((VolumeControl[volumeID] + 80) / 100):P0}";
+        _percentText[volumeID].text = $"{Mathf.Clamp01(((_slider[volumeID].value + 30)*3.33f) / 100):P0}";
     }
 }
 
